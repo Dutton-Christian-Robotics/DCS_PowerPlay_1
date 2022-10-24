@@ -13,6 +13,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public String LIFT_LEFT_MOTOR_NAME, LIFT_RIGHT_MOTOR_NAME;
     public DcMotorSimple.Direction LIFT_LEFT_MOTOR_DIRECTION, LIFT_RIGHT_MOTOR_DIRECTION;
     public double LIFT_POWER_MAX;
+    public int LIFT_POSITION_MAX, LIFT_POSITION_HIGH, LIFT_POSITION_MIDDLE, LIFT_POSITION_LOW, LIFT_POSITION_REST;
 //    public int ARM_TILT_VELOCITY_MAX;
 //    public int ARM_TILT_POSITION_DOWN;
 //    public int ARM_TILT_POSITION_LEVEL;
@@ -44,6 +45,10 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   DRIVETRAIN_FRONTLEFT_MOTOR_NAME = "front_left_motor";
 	   DRIVETRAIN_FRONTRIGHT_MOTOR_NAME = "front_right_motor";
 	   DRIVETRAIN_BACKRIGHT_MOTOR_NAME = "back_right_motor";
+	   DRIVETRAIN_BACKLEFT_MOTOR_DIRECTION = DcMotorSimple.Direction.FORWARD;
+	   DRIVETRAIN_FRONTLEFT_MOTOR_DIRECTION = DcMotorSimple.Direction.FORWARD;
+	   DRIVETRAIN_FRONTRIGHT_MOTOR_DIRECTION = DcMotorSimple.Direction.REVERSE;
+	   DRIVETRAIN_BACKRIGHT_MOTOR_DIRECTION = DcMotorSimple.Direction.FORWARD;
 	   DRIVETRAIN_POWER_MAX = 1.0;
 
 	   LIFT_LEFT_MOTOR_NAME = "lift_left_motor";
@@ -51,6 +56,11 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   LIFT_LEFT_MOTOR_DIRECTION = DcMotorSimple.Direction.REVERSE;
 	   LIFT_RIGHT_MOTOR_DIRECTION = DcMotorSimple.Direction.FORWARD;
 	   LIFT_POWER_MAX = 1;
+	   LIFT_POSITION_MAX = 500;
+	   LIFT_POSITION_HIGH = 400;
+	   LIFT_POSITION_MIDDLE = 250;
+	   LIFT_POSITION_LOW = 100;
+	   LIFT_POSITION_REST = 0;
 //	   ARM_TILT_VELOCITY_MAX = 900;
 //	   ARM_TILT_POSITION_DOWN = 50;
 //	   ARM_TILT_POSITION_LEVEL = 0;

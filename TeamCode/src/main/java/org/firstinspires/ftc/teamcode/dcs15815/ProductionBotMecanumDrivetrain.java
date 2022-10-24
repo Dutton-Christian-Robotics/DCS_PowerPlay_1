@@ -18,6 +18,11 @@ public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
 	   frontRight = hm.dcMotor.get(configString("DRIVETRAIN_FRONTRIGHT_MOTOR_NAME"));
 	   backRight = hm.dcMotor.get(configString("DRIVETRAIN_BACKRIGHT_MOTOR_NAME"));
 
+	   backLeft.setDirection(configMotorDirection("DRIVETRAIN_BACKLEFT_MOTOR_DIRECTION"));
+	   frontLeft.setDirection(configMotorDirection("DRIVETRAIN_FRONTLEFT_MOTOR_DIRECTION"));
+	   frontRight.setDirection(configMotorDirection("DRIVETRAIN_FRONTRIGHT_MOTOR_DIRECTION"));
+	   backRight.setDirection(configMotorDirection("DRIVETRAIN_BACKRIGHT_MOTOR_DIRECTION"));
+
 	   resetEncoders();
     }
 

@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
+import com.qualcomm.robotcore.hardware.DcMotorSimple;
+
 import java.lang.reflect.Field;
 import java.util.Hashtable;
 
@@ -10,6 +12,12 @@ abstract class DefenderBotConfiguration {
     public String DRIVETRAIN_FRONTLEFT_MOTOR_NAME = null;
     public String DRIVETRAIN_FRONTRIGHT_MOTOR_NAME = null;
     public String DRIVETRAIN_BACKRIGHT_MOTOR_NAME = null;
+
+    public DcMotorSimple.Direction DRIVETRAIN_BACKLEFT_MOTOR_DIRECTION = null;
+    public DcMotorSimple.Direction DRIVETRAIN_FRONTLEFT_MOTOR_DIRECTION = null;
+    public DcMotorSimple.Direction DRIVETRAIN_FRONTRIGHT_MOTOR_DIRECTION = null;
+    public DcMotorSimple.Direction DRIVETRAIN_BACKRIGHT_MOTOR_DIRECTION = null;
+
 
     DefenderBotConfiguration() {
 	   fieldHashtable = new Hashtable<>();
