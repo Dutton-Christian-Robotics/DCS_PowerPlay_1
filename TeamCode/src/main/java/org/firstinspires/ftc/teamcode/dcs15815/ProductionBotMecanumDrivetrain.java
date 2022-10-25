@@ -84,8 +84,8 @@ public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
     }
 
     public void drive(double forward, double strafe, double rotate) {
-	   setMotorDirection(DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.FORWARD,
-			 DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.REVERSE);
+//	   setMotorDirection(DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.FORWARD,
+//			 DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.REVERSE);
 
 	   double backLeftPower = forward - strafe + rotate;
 	   double frontLeftPower = forward + strafe + rotate;

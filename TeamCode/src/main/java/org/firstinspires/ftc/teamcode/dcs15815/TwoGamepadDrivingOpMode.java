@@ -1,10 +1,10 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-@TeleOp(name = "One Gamepad Driving Test", group = "Testing")
-public class OneGamepadDrivingTestOpMode extends LinearOpMode
+@TeleOp(name = "Two Gamepad Driving", group = "Competition")
+public class TwoGamepadDrivingOpMode extends LinearOpMode
 {
     ProductionBot bot;
     private DefenderDebouncer liftUpDebouncer, liftDownDebouncer, liftGroundDebouncer;
@@ -44,25 +44,23 @@ public class OneGamepadDrivingTestOpMode extends LinearOpMode
 		  telemetry.addData("lift-right", bot.lift.rightMotor.getCurrentPosition());
 		  bot.drivetrain.drive(-1 * gamepad1.left_stick_y, (gamepad1.right_trigger - gamepad1.left_trigger), gamepad1.left_stick_x);
 
-		  if (gamepad1.right_stick_y > 0) {
-			 bot.lift.setPower(-1 * gamepad1.right_stick_y);
-		  } else if (gamepad1.right_stick_y < 0) {
-			 bot.lift.setPower(-1 * gamepad1.right_stick_y);
-		  } else if (gamepad1.y) {
-			 bot.lift.setPower(0.2);
-		  } else if (gamepad1.dpad_up) {
+		  if (gamepad2.right_stick_y > 0) {
+			 bot.lift.setPower(-1 * gamepad2.right_stick_y);
+		  } else if (gamepad2.right_stick_y < 0) {
+			 bot.lift.setPower(-1 * gamepad2.right_stick_y);
+		  } else if (gamepad2.dpad_up) {
 			 liftUpDebouncer.run();
-		  } else if (gamepad1.dpad_down) {
+		  } else if (gamepad2.dpad_down) {
 			 liftDownDebouncer.run();
-		  } else if (gamepad1.x) {
+		  } else if (gamepad2.x) {
 			 liftGroundDebouncer.run();
 		  }
-		  if (gamepad1.b) {
+		  if (gamepad2.b) {
 			 bot.lift.stop();
 		  }
-		  if (gamepad1.left_bumper) {
+		  if (gamepad2.left_bumper) {
 			 bot.claw.open();
-		  } else if (gamepad1.right_bumper) {
+		  } else if (gamepad2.right_bumper) {
 			 bot.claw.close();
 		  }
 		  telemetry.addData("lift-target", liftPositions[currentLiftPositionIndex]);
