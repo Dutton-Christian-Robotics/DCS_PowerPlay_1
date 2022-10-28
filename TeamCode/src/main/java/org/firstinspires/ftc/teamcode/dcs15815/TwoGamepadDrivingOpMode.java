@@ -7,9 +7,10 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 public class TwoGamepadDrivingOpMode extends LinearOpMode
 {
     ProductionBot bot;
-    private DefenderDebouncer liftUpDebouncer, liftDownDebouncer, liftGroundDebouncer;
+    private DefenderDebouncer liftUpDebouncer, liftDownDebouncer, liftGroundDebouncer, clawDebouncer;
     int currentLiftPositionIndex = 0;
     int[] liftPositions;
+    boolean isClawOpen;
 
     @Override
     public void runOpMode() {
@@ -34,11 +35,23 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 		  bot.lift.setPosition(liftPositions[currentLiftPositionIndex]);
 	   });
 	   liftGroundDebouncer = new DefenderDebouncer(500, () -> {
-		  bot.lift.gotoPosition(0);
+		  bot.lift.setPosition(0);
 		  currentLiftPositionIndex = 0;
+	   });
+	   clawDebouncer = new DefenderDebouncer(500, () -> {
+		  if (isClawOpen) {
+			 bot.claw.close();
+		  } else {
+			 bot.claw.open();
+		  }
+		  isClawOpen = !isClawOpen;
 	   });
 
 	   waitForStart();
+	   bot.claw.open();
+	   isClawOpen = true;
+
+
 	   while (opModeIsActive()) {
 		  telemetry.addData("lift-left", bot.lift.leftMotor.getCurrentPosition());
 		  telemetry.addData("lift-right", bot.lift.rightMotor.getCurrentPosition());
@@ -58,10 +71,8 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 		  if (gamepad2.b) {
 			 bot.lift.stop();
 		  }
-		  if (gamepad2.left_bumper) {
-			 bot.claw.open();
-		  } else if (gamepad2.right_bumper) {
-			 bot.claw.close();
+		  if (gamepad2.right_bumper) {
+			 clawDebouncer.run();
 		  }
 		  telemetry.addData("lift-target", liftPositions[currentLiftPositionIndex]);
 		  telemetry.update();
