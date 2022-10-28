@@ -34,7 +34,7 @@ public class OneGamepadDrivingTestOpMode extends LinearOpMode
 		  bot.lift.setPosition(liftPositions[currentLiftPositionIndex]);
 	   });
 	   liftGroundDebouncer = new DefenderDebouncer(500, () -> {
-		  bot.lift.gotoPosition(0);
+		  bot.lift.setPosition(0);
 		  currentLiftPositionIndex = 0;
 	   });
 
