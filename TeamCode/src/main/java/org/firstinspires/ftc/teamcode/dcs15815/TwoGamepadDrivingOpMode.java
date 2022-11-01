@@ -8,6 +8,7 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 {
     ProductionBot bot;
     private DefenderDebouncer liftUpDebouncer, liftDownDebouncer, liftGroundDebouncer, clawDebouncer;
+    private DefenderAnalogModifier gamepad2RightStickModifier;
     int currentLiftPositionIndex = 0;
     int[] liftPositions;
     boolean isClawOpen;
@@ -16,11 +17,16 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
     public void runOpMode() {
 	   bot = new ProductionBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
 
+	   gamepad2RightStickModifier = new DefenderAnalogModifier(
+		  bot.getConfigDouble("GAMEPAD2_RIGHT_STICK_CURVE"),
+		  bot.getConfigDouble("GAMEPAD2_RIGHT_STICK_MAX")
+	   );
+
 	   liftPositions = new int[]{
-		  bot.configuration.getInt("LIFT_POSITION_GROUND"),
-		  bot.configuration.getInt("LIFT_POSITION_LOW"),
-		  bot.configuration.getInt("LIFT_POSITION_MIDDLE"),
-		  bot.configuration.getInt("LIFT_POSITION_HIGH")
+		  bot.getConfigInt("LIFT_POSITION_GROUND"),
+		  bot.getConfigInt("LIFT_POSITION_LOW"),
+		  bot.getConfigInt("LIFT_POSITION_MIDDLE"),
+		  bot.getConfigInt("LIFT_POSITION_HIGH")
 	   };
 	   liftUpDebouncer = new DefenderDebouncer(500, () -> {
 		  if (currentLiftPositionIndex < (liftPositions.length - 1)) {
@@ -53,14 +59,14 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 
 
 	   while (opModeIsActive()) {
-		  telemetry.addData("lift-left", bot.lift.leftMotor.getCurrentPosition());
-		  telemetry.addData("lift-right", bot.lift.rightMotor.getCurrentPosition());
+//		  telemetry.addData("lift-left", bot.lift.leftMotor.getCurrentPosition());
+//		  telemetry.addData("lift-right", bot.lift.rightMotor.getCurrentPosition());
 		  bot.drivetrain.drive(-1 * gamepad1.left_stick_y, (gamepad1.right_trigger - gamepad1.left_trigger), gamepad1.left_stick_x);
 
 		  if (gamepad2.right_stick_y > 0) {
-			 bot.lift.setPower(-1 * gamepad2.right_stick_y);
+			 bot.lift.setPower(gamepad2RightStickModifier.modify(-1 * gamepad2.right_stick_y));
 		  } else if (gamepad2.right_stick_y < 0) {
-			 bot.lift.setPower(-1 * gamepad2.right_stick_y);
+			 bot.lift.setPower(gamepad2RightStickModifier.modify(-1 * gamepad2.right_stick_y));
 		  } else if (gamepad2.dpad_up) {
 			 liftUpDebouncer.run();
 		  } else if (gamepad2.dpad_down) {

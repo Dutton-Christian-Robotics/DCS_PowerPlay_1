@@ -92,4 +92,20 @@ public class DefenderBot {
 	   }
     }
 
+    public double getConfigDouble(String key) {
+	   return this.configuration.getDouble(key);
+    }
+
+    public int getConfigInt(String key) {
+	   return this.configuration.getInt(key);
+    }
+
+    public long getConfigLong(String key) {
+	   return this.configuration.getLong(key);
+    }
+
+    public String getConfigString(String key) {
+	   return this.configuration.getString(key);
+    }
+
 }

@@ -16,6 +16,8 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public int LIFT_POSITION_MAX, LIFT_POSITION_HIGH, LIFT_POSITION_MIDDLE, LIFT_POSITION_LOW, LIFT_POSITION_GROUND;
     public double LIFT_MOTOR_KP, LIFT_MOTOR_KI, LIFT_MOTO_KD;
 
+    public double GAMEPAD2_RIGHT_STICK_CURVE, GAMEPAD2_RIGHT_STICK_MAX;
+
     public String CLAW_SERVO_NAME;
     public double CLAW_POSITION_OPEN;
     public double CLAW_POSITION_CLOSED;
@@ -53,6 +55,9 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   LIFT_LEFT_MOTOR_DIRECTION = DcMotorSimple.Direction.REVERSE;
 	   LIFT_RIGHT_MOTOR_DIRECTION = DcMotorSimple.Direction.FORWARD;
 	   LIFT_POWER_MAX = 1;
+	   GAMEPAD2_RIGHT_STICK_CURVE = 2;
+	   GAMEPAD2_RIGHT_STICK_MAX = 1;
+
 	   LIFT_POSITION_MAX = 2000;
 	   LIFT_POSITION_HIGH = 2000;
 	   LIFT_POSITION_MIDDLE = 1500;
