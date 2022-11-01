@@ -6,7 +6,6 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class ProductionBot extends DefenderBot {
 
-//    public ProductionBotArm arm;
     public ProductionBotClaw claw;
 //    public ProductionBotVision vision;
     public ProductionBotSensors sensors;
@@ -20,8 +19,6 @@ public class ProductionBot extends DefenderBot {
 
 	   drivetrain = addSystem(ProductionBotMecanumDrivetrain.class);
 	   lift = addSystem(ProductionBotLift.class);
-//	   spinner = addSystem(ProductionBotSpinner.class);
-//	   arm = addSystem(ProductionBotArm.class);
 	   claw = addSystem(ProductionBotClaw.class);
 //	   vision = addSystem(ProductionBotVision.class);
 	   sensors = addSystem(ProductionBotSensors.class);
