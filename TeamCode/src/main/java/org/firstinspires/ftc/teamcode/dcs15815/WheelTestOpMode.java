@@ -1,8 +1,10 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+@Disabled
 @TeleOp(name = "Wheel Test", group = "Testing")
 public class WheelTestOpMode extends LinearOpMode
 {
