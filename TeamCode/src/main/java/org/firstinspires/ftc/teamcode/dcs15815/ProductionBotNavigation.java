@@ -19,7 +19,7 @@ public class ProductionBotNavigation extends DefenderBotSystem {
     private DcMotor backLeft, frontLeft, frontRight, backRight;
 
     private ProductionBotSensors sensors;
-
+    private ProductionBotMecanumDrivetrain drivetrain;
 
     ProductionBotNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
@@ -30,13 +30,29 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 	   conversion = new GeneralMatrixF(3, 3, data);
 	   conversion = conversion.inverted();
 
-	   backLeft = ((ProductionBotMecanumDrivetrain) bot.drivetrain).backLeft;
-	   frontLeft = ((ProductionBotMecanumDrivetrain) bot.drivetrain).frontLeft;
-	   frontRight = ((ProductionBotMecanumDrivetrain) bot.drivetrain).frontRight;
-	   backRight = ((ProductionBotMecanumDrivetrain) bot.drivetrain).backRight;
 
 	   sensors = (ProductionBotSensors)((ProductionBot)bot).sensors;
+
+    }
+
+    public void linkDrivetrain(ProductionBotMecanumDrivetrain dt) {
+	   drivetrain = dt;
+//	   System.out.println("FLAG");
+//	   System.out.println(drivetrain == null ? "null" : "exists");
+//	   System.out.println(drivetrain.getClass().getName());
+
+	   backLeft = drivetrain.backLeft;
+	   frontLeft = drivetrain.frontLeft;
+	   frontRight = drivetrain.frontRight;
+	   backRight = drivetrain.backRight;
+
 	   setEncoderOffsets();
+
+//	   backLeft = ((ProductionBotMecanumDrivetrain) bot.drivetrain).backLeft;
+//	   frontLeft = ((ProductionBotMecanumDrivetrain) bot.drivetrain).frontLeft;
+//	   frontRight = ((ProductionBotMecanumDrivetrain) bot.drivetrain).frontRight;
+//	   backRight = ((ProductionBotMecanumDrivetrain) bot.drivetrain).backRight;
+
     }
 
     public boolean between(double x, double min, double max) {
@@ -56,27 +72,27 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 		  absDifference = Math.abs(difference);
 
 		  if (between(absDifference, tolerance, 2 * tolerance) && (difference < 0)) {
-			 bot.drivetrain.drive(0, 0, -1 * maxPower / 8);
+			 drivetrain.drive(0, 0, -1 * maxPower / 8);
 			 sleep(sleepLength);
 
 		  } else if (between(absDifference, tolerance, 4 * tolerance) && (difference < 0)) {
-			 bot.drivetrain.drive(0, 0, -1 * maxPower / 4);
+			 drivetrain.drive(0, 0, -1 * maxPower / 4);
 			 sleep(sleepLength);
 
 		  } else if ((absDifference > 4 * tolerance) && (difference < 0)) {
-			 bot.drivetrain.drive(0, 0, -1 * maxPower);
+			 drivetrain.drive(0, 0, -1 * maxPower);
 			 sleep(sleepLength);
 
 		  } else if (between(absDifference, tolerance, 2 * tolerance) && (difference > 0)) {
-			 bot.drivetrain.drive(0, 0, maxPower / 8);
+			 drivetrain.drive(0, 0, maxPower / 8);
 			 sleep(sleepLength);
 
 		  } else if (between(absDifference, tolerance, 4 * tolerance) && (difference > 0)) {
-			 bot.drivetrain.drive(0, 0, maxPower / 4);
+			 drivetrain.drive(0, 0, maxPower / 4);
 			 sleep(sleepLength);
 
 		  } else if ((absDifference > 4 * tolerance) && (difference > 0)) {
-			 bot.drivetrain.drive(0, 0, maxPower);
+			 drivetrain.drive(0, 0, maxPower);
 			 sleep(sleepLength);
 		  } else {
 			 keepTurning = false;
@@ -133,11 +149,19 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 	   double rotation = 0;
 	   double averageError = 0;
 
-	   // should replace these constants with config values
 	   while ((Math.abs(y - d[0]) > configDouble("NAVIGATION_TOLERANCE_Y")) || (Math.abs(x - d[1]) > configDouble("NAVIGATION_TOLERANCE_X")) || (Math.abs(heading - h) > configDouble("NAVIGATION_TOLERANCE_ROTATION"))) {
 		  deltaX = x - d[1];
 		  deltaY = y - d[0];
 		  deltaH = h - heading;
+		  bot.telemetry.addData("dX", deltaX);
+		  bot.telemetry.addData("dY", deltaY);
+		  bot.telemetry.addData("dH", deltaH);
+		  bot.telemetry.update();
+//		  System.out.println("DRIVE REPORT");
+//		  System.out.println(deltaX);
+//		  System.out.println(deltaY);
+//		  System.out.println(deltaH);
+
 
 //            bot.telemetry.addData("x", deltaX);
 //            bot.telemetry.addData("y", deltaY);
@@ -174,7 +198,7 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 
 //            bot.telemetry.update();
 //            bot.drive(powerDropoff(y, d[0]), powerDropoff(x, d[1]), 0);
-		  bot.drive(pY, pX, pH);
+		  drivetrain.drive(pY, pX, pH);
 		  d = getDistanceInches();
 		  h = sensors.getIntegratedHeading();
 	   }
@@ -204,7 +228,7 @@ public class ProductionBotNavigation extends DefenderBotSystem {
     }
 
     public void resetPositionTracking() {
-	   ((ProductionBotMecanumDrivetrain)bot.drivetrain).resetEncoders();
+	   drivetrain.resetEncoders();
     }
 
     public void resetAndDriveToPosition(double x, double y) {

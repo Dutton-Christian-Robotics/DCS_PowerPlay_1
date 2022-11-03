@@ -70,6 +70,7 @@ public class DefenderBot {
 
 	   } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException | InstantiationException ex) {
 		  System.out.println("CRASH!");
+		  ex.printStackTrace();
 		  System.out.println(ex.getClass().getCanonicalName());
 		  System.out.println(ex.getMessage());
 		  System.out.println(ex.getCause());

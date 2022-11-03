@@ -92,6 +92,12 @@ public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
 	   double frontRightPower = forward - strafe - rotate;
 	   double backRightPower = forward + strafe - rotate;
 
+	   System.out.println("DRIVE REPORT");
+	   System.out.println(backLeftPower);
+	   System.out.println(frontLeftPower);
+	   System.out.println(frontRightPower);
+	   System.out.println(backRightPower);
+
 	   setProportionalPower(backLeftPower, frontLeftPower, frontRightPower, backRightPower);
     }
 
