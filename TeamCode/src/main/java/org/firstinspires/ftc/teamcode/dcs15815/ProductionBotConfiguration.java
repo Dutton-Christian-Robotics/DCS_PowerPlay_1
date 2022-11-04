@@ -9,6 +9,7 @@ import java.lang.reflect.Field;
 public class ProductionBotConfiguration extends DefenderBotConfiguration {
 
     public double DRIVETRAIN_POWER_MAX;
+    public int DRIVETRAIN_MAX_TICKS_PER_SECOND;
 
     public String LIFT_LEFT_MOTOR_NAME, LIFT_RIGHT_MOTOR_NAME;
     public DcMotorSimple.Direction LIFT_LEFT_MOTOR_DIRECTION, LIFT_RIGHT_MOTOR_DIRECTION;
@@ -49,6 +50,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   DRIVETRAIN_FRONTRIGHT_MOTOR_DIRECTION = DcMotorSimple.Direction.REVERSE;
 	   DRIVETRAIN_BACKRIGHT_MOTOR_DIRECTION = DcMotorSimple.Direction.FORWARD;
 	   DRIVETRAIN_POWER_MAX = 1.0;
+	   DRIVETRAIN_MAX_TICKS_PER_SECOND = 2800;
 
 	   LIFT_LEFT_MOTOR_NAME = "lift_left_motor";
 	   LIFT_RIGHT_MOTOR_NAME = "lift_right_motor";

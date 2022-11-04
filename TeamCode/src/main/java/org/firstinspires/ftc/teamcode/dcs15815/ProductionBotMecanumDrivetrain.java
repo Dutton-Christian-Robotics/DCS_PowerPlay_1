@@ -122,7 +122,7 @@ public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
 	   largest = Math.max(largest, Math.abs(frontRightPower));
 	   largest = Math.max(largest, Math.abs(backRightPower));
 
-	   double maxTicksSecond = 2800;
+	   double maxTicksSecond = configInt("DRIVETRAIN_MAX_TICKS_PER_SECOND");
 
 	   backLeft.setVelocity(backLeftPower / largest * maxTicksSecond);
 	   frontLeft.setVelocity(frontLeftPower / largest * maxTicksSecond);
