@@ -61,15 +61,17 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   LIFT_POSITION_MAX = 2000;
 	   LIFT_POSITION_HIGH = 2000;
 	   LIFT_POSITION_MIDDLE = 1500;
-	   LIFT_POSITION_LOW = 1100;
+	   LIFT_POSITION_LOW = 1000;
 	   LIFT_POSITION_GROUND = 0;
 	   LIFT_MOTOR_KP = 0;
 	   LIFT_MOTOR_KI = 0;
 	   LIFT_MOTO_KD = 0;
 
 	   CLAW_SERVO_NAME = "claw";
-	   CLAW_POSITION_OPEN = 0.15;
-	   CLAW_POSITION_CLOSED = 0.8;
+//	   CLAW_POSITION_OPEN = 0.15;
+//	   CLAW_POSITION_CLOSED = 0.8;
+	   CLAW_POSITION_OPEN = 0.8;	// in adding the "replacement" claw, we discovered its positions were reversed. So hence the change
+	   CLAW_POSITION_CLOSED = 0.15;
 
 	   IMU_SENSOR_NAME = "imu";
 	   IMU_AXES_ORDER = AxesOrder.XYZ;
