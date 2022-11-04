@@ -1,22 +1,23 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 
 public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
 
-    public DcMotor backLeft, frontLeft, frontRight, backRight;
+    public DcMotorEx backLeft, frontLeft, frontRight, backRight;
 
 
     ProductionBotMecanumDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
-	   backLeft = hm.dcMotor.get(configString("DRIVETRAIN_BACKLEFT_MOTOR_NAME"));
-	   frontLeft = hm.dcMotor.get(configString("DRIVETRAIN_FRONTLEFT_MOTOR_NAME"));
-	   frontRight = hm.dcMotor.get(configString("DRIVETRAIN_FRONTRIGHT_MOTOR_NAME"));
-	   backRight = hm.dcMotor.get(configString("DRIVETRAIN_BACKRIGHT_MOTOR_NAME"));
+	   backLeft = hm.get(DcMotorEx.class, configString("DRIVETRAIN_BACKLEFT_MOTOR_NAME"));
+	   frontLeft = hm.get(DcMotorEx.class, configString("DRIVETRAIN_FRONTLEFT_MOTOR_NAME"));
+	   frontRight = hm.get(DcMotorEx.class, configString("DRIVETRAIN_FRONTRIGHT_MOTOR_NAME"));
+	   backRight = hm.get(DcMotorEx.class, configString("DRIVETRAIN_BACKRIGHT_MOTOR_NAME"));
 
 	   backLeft.setDirection(configMotorDirection("DRIVETRAIN_BACKLEFT_MOTOR_DIRECTION"));
 	   frontLeft.setDirection(configMotorDirection("DRIVETRAIN_FRONTLEFT_MOTOR_DIRECTION"));
@@ -27,15 +28,15 @@ public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
     }
 
     public void resetEncoders() {
-	   backLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-	   frontLeft.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-	   frontRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-	   backRight.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+	   backLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+	   frontLeft.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+	   frontRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
+	   backRight.setMode(DcMotorEx.RunMode.STOP_AND_RESET_ENCODER);
 
-	   backLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-	   frontLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-	   frontRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-	   backRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+	   backLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+	   frontLeft.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+	   frontRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
+	   backRight.setMode(DcMotorEx.RunMode.RUN_WITHOUT_ENCODER);
     }
 
     public void setPower(double bl, double fl, double fr, double br) {
@@ -100,6 +101,35 @@ public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
 
 	   setProportionalPower(backLeftPower, frontLeftPower, frontRightPower, backRightPower);
     }
+
+    public void driveByVelocity(double forward, double strafe, double rotate) {
+//	   setMotorDirection(DcMotorSimple.Direction.FORWARD, DcMotorSimple.Direction.FORWARD,
+//			 DcMotorSimple.Direction.REVERSE, DcMotorSimple.Direction.REVERSE);
+
+	   backLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+	   frontLeft.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+	   frontRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+	   backRight.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+
+	   double backLeftPower = forward - strafe + rotate;
+	   double frontLeftPower = forward + strafe + rotate;
+	   double frontRightPower = forward - strafe - rotate;
+	   double backRightPower = forward + strafe - rotate;
+
+	   double largest = 1;
+	   largest = Math.max(largest, Math.abs(backLeftPower));
+	   largest = Math.max(largest, Math.abs(frontLeftPower));
+	   largest = Math.max(largest, Math.abs(frontRightPower));
+	   largest = Math.max(largest, Math.abs(backRightPower));
+
+	   double maxTicksSecond = 2800;
+
+	   backLeft.setVelocity(backLeftPower / largest * maxTicksSecond);
+	   frontLeft.setVelocity(frontLeftPower / largest * maxTicksSecond);
+	   frontRight.setVelocity(frontRightPower / largest * maxTicksSecond);
+	   backRight.setVelocity(backRightPower / largest * maxTicksSecond);
+    }
+
 
 
 }
