@@ -61,7 +61,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   GAMEPAD2_RIGHT_STICK_MAX = 1;
 
 	   LIFT_POSITION_MAX = 2000;
-	   LIFT_POSITION_HIGH = 2000;
+	   LIFT_POSITION_HIGH = 2200;
 	   LIFT_POSITION_MIDDLE = 1500;
 	   LIFT_POSITION_LOW = 1000;
 	   LIFT_POSITION_GROUND = 0;
