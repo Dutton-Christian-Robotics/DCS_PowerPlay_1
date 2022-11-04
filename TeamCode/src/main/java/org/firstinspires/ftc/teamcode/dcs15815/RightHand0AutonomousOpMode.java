@@ -10,8 +10,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
-@Autonomous(name = "Left Hand 0 Autonomous", group = "Left")
-public class LeftHand0AutonomousOpMode extends LinearOpMode {
+@Autonomous(name = "Right Hand 0 Autonomous", group = "Right")
+public class RightHand0AutonomousOpMode extends LinearOpMode {
     ProductionBot bot;
     int foundTagId = -1;
 
@@ -60,7 +60,7 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 		  bot.drivetrain.stopDriving();
 		  sleep(200);
 
-		  bot.drivetrain.driveByVelocity(0, -0.25, 0);
+		  bot.drivetrain.driveByVelocity(0, 0.25, 0);
 		  sleep(2100);
 
 		  bot.drivetrain.stopDriving();
