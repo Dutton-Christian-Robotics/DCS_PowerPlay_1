@@ -17,6 +17,9 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+	   telemetry.addData("Bot", "initializing...");
+	   telemetry.update();
+
 	   bot = new ProductionBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
 //		if (bot == null) {
 //		    telemetry.addData("bot", "null");
@@ -40,7 +43,9 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
 		  if (mostRecentlyFoundTagId > 0) {
 			 foundTagId = mostRecentlyFoundTagId;
-			 telemetry.addData("Signal Position", foundTagId);
+			 telemetry.addData("Signal Position Found", foundTagId);
+		  } else if (foundTagId == -1) {
+			 telemetry.addData("Signal", "searching...");
 		  }
 		  telemetry.update();
 		  sleep(20);
@@ -55,20 +60,20 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 
 	   if (foundTagId < 1) { // for some reason couldn't find tag, park in terminal
 		  bot.drivetrain.driveByVelocity(0.2, 0, 0);
-		  sleep(100);
+		  sleep(50);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(200);
 
 		  bot.drivetrain.driveByVelocity(0, -0.25, 0);
-		  sleep(2100);
+		  sleep(2000);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
 	   } else if (foundTagId == 1) {
 		  bot.drivetrain.driveByVelocity(0.2, 0, 0);
-		  sleep(100);
+		  sleep(50);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(200);
@@ -86,19 +91,19 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 
 	   } else if (foundTagId == 2) {
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(550);
+		  sleep(700);
 
 		  bot.drivetrain.stopDriving();
 
 	   } else if (foundTagId == 3) {
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(700);
+		  sleep(725);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
 		  bot.drivetrain.driveByVelocity(0, 0.5, 0);
-		  sleep(1050);
+		  sleep(1200);
 
 		  bot.drivetrain.stopDriving();
 

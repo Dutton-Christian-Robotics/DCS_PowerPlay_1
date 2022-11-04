@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /*
  Alliance Color: either blue or red
- Starting Position: touching wall, contained within tile A5 (blue) or F2 (red); camera pointed at signal
+ Starting Position: touching wall, contained within tile A2 (blue) or F5 (red); camera pointed at signal
  Tasks:
  	1) determine signal zone from team-supplied signal sleeve
  	2) park within signal zone (or terminal if there's a detection failure)
@@ -17,6 +17,10 @@ public class RightHand0AutonomousOpMode extends LinearOpMode {
 
     @Override
     public void runOpMode() {
+	   telemetry.addData("Bot", "initializing...");
+	   telemetry.update();
+
+
 	   bot = new ProductionBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
 //		if (bot == null) {
 //		    telemetry.addData("bot", "null");
@@ -40,7 +44,9 @@ public class RightHand0AutonomousOpMode extends LinearOpMode {
 		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
 		  if (mostRecentlyFoundTagId > 0) {
 			 foundTagId = mostRecentlyFoundTagId;
-			 telemetry.addData("Signal Position", foundTagId);
+			 telemetry.addData("Signal Position Found", foundTagId);
+		  } else if (foundTagId == -1) {
+			 telemetry.addData("Signal", "searching...");
 		  }
 		  telemetry.update();
 		  sleep(20);
@@ -55,50 +61,60 @@ public class RightHand0AutonomousOpMode extends LinearOpMode {
 
 	   if (foundTagId < 1) { // for some reason couldn't find tag, park in terminal
 		  bot.drivetrain.driveByVelocity(0.2, 0, 0);
-		  sleep(100);
+		  sleep(50);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(200);
 
 		  bot.drivetrain.driveByVelocity(0, 0.25, 0);
-		  sleep(2100);
+		  sleep(2000);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
 	   } else if (foundTagId == 1) {
-		  bot.drivetrain.driveByVelocity(0.2, 0, 0);
-		  sleep(100);
+//
+//		  bot.drivetrain.driveByVelocity(-0.1, -0.6, 0);
+//		  sleep(1400);
+//
+//		  bot.drivetrain.stopDriving();
+//		  sleep(400);
+//
+//		  bot.navigation.comeToHeading(0, 0.25);
+//
+//		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
+//		  sleep(500);
+//
+//		  bot.drivetrain.stopDriving();
 
-		  bot.drivetrain.stopDriving();
-		  sleep(200);
-
-		  bot.drivetrain.driveByVelocity(0, -0.25, 0);
-		  sleep(2100);
+		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
+		  sleep(650);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
-		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(600);
+		  bot.drivetrain.driveByVelocity(-0.1, -0.6, 0);
+		  sleep(1200);
 
 		  bot.drivetrain.stopDriving();
 
+
+
 	   } else if (foundTagId == 2) {
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(550);
+		  sleep(700);
 
 		  bot.drivetrain.stopDriving();
 
 	   } else if (foundTagId == 3) {
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(700);
+		  sleep(675);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
 		  bot.drivetrain.driveByVelocity(0, 0.5, 0);
-		  sleep(1050);
+		  sleep(1200);
 
 		  bot.drivetrain.stopDriving();
 
