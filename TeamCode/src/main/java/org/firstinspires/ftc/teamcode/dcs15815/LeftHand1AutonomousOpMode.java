@@ -4,9 +4,19 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
+/*
+ Alliance Color: either blue or red
+ Starting Position: touching wall, contained within tile A5 (blue) or F2 (red); camera pointed at signal
+ Tasks:
+ 	1) determine signal zone from team-supplied signal sleeve
+ 	2) navigate to closest aliiance-sided high junction
+ 	3) deposit pre-loaded cone on junction
+ 	2) park within signal zone
+ */
+
 
 @Disabled
-@Autonomous(name = "Left Hand 1 AuUtonomous", group = "Left")
+@Autonomous(name = "Left Hand 1 Autonomous", group = "Left")
 public class LeftHand1AutonomousOpMode extends LinearOpMode {
     ProductionBot bot;
     int foundTagId = -1;
@@ -16,55 +26,61 @@ public class LeftHand1AutonomousOpMode extends LinearOpMode {
 	   bot = new ProductionBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
 
 	   while (!isStarted() && !isStopRequested()) {
-		  foundTagId = bot.vision.searchForTags();
-		  if (foundTagId > 0) {
-			 telemetry.addData("Signal Position", foundTagId);
-		  } else {
-			 telemetry.addData("Signal Position", "NOT FOUND");
+		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
+		  if (mostRecentlyFoundTagId > 0) {
+			 foundTagId = mostRecentlyFoundTagId;
+			 telemetry.addData("Signal Position Found", foundTagId);
+		  } else if (foundTagId == -1) {
+			 telemetry.addData("Signal", "searching...");
 		  }
 		  telemetry.update();
 		  sleep(20);
 	   }
 //	   waitForStart();
 
-	   while (foundTagId < 1) {
-		  sleep(100);
-		  foundTagId = bot.vision.searchForTags();
-	   }
-
-	   bot.navigation.driveToPosition(0, 2);
-	   bot.navigation.driveToPosition(24, 2);
-	   bot.navigation.driveToPosition(24, 26);
-	   bot.navigation.driveToPosition(24, 26);
-//
-//	   if (barcodePosition == 1) {
-//		  bot.arm.awaitTiltMotorPosition(64);
-//		  bot.arm.awaitExtendMotorPosition(500);
-////	       bot.navigation.driveToPosition(34, 19);
-//		  bot.claw.open();
-//		  sleep(1000);
-//
-//	   } else if (barcodePosition == 2) {
-//		  // opens claw too early
-//		  bot.arm.awaitTiltAndExtendMotorPositions(80, 1026);
-//		  bot.claw.open();
-//		  sleep(1000);
-//		  bot.arm.awaitTiltAndExtendMotorPositions(100, 0);
-//
-//	   } else if (barcodePosition == 3) {
-//
-//		  bot.arm.awaitTiltMotorPosition(154);
-//		  bot.arm.awaitExtendMotorPosition(1500);
-//
-//		  bot.claw.open();
-//		  sleep(1000);
-//		  bot.arm.setTiltMotorPosition(0);
-//		  bot.arm.setExtendMotorPosition(0);
-//
+//	   while (foundTagId < 1) {
+//		  sleep(100);
+//		  foundTagId = bot.vision.searchForTags();
 //	   }
 
-	   bot.navigation.resetAndDriveToPosition(0, -2);
-	   bot.navigation.comeToHeading(-90);
-	   bot.navigation.resetAndDriveToPosition(0, 65);
+	   // Close claw to ensure grip on cone
+	   bot.claw.close(); sleep(1500);
+
+	   // Drive forward and knock signal out of way
+	   bot.drivetrain.driveByVelocity(0.3, 0, 0); sleep(850);
+	   bot.drivetrain.stopDriving(); sleep(400);
+
+	   // Backup a smidge to prepare for strafe
+	   bot.drivetrain.driveByVelocity(-0.3, 0, 0); sleep(200);
+	   bot.drivetrain.stopDriving(); sleep(400);
+
+
+	   bot.drivetrain.driveByVelocity(0, 0.5, 0); sleep(1800);
+	   bot.drivetrain.stopDriving(); sleep(400);
+
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(3000);
+
+	   bot.drivetrain.driveByVelocity(0.05, 0, 0); sleep(50);
+	   bot.drivetrain.stopDriving(); sleep(500);
+
+	   bot.claw.open(); sleep(750);
+
+//	   bot.drivetrain.driveByVelocity(-0.05, 0, 0); sleep(50);
+//	   bot.drivetrain.stopDriving(); sleep(500);
+
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(2000);
+
+	   bot.navigation.comeToHeading(80, 0.25);
+
+
+	   if (foundTagId == 1) {
+		  bot.drivetrain.driveByVelocity(0.3, 0, 0); sleep(1400);
+	   } else if (foundTagId == 2) {
+		  bot.drivetrain.driveByVelocity(0.3, 0, 0); sleep(600);
+	   } else if (foundTagId == 3) {
+		  bot.drivetrain.driveByVelocity(0.3, 0, 0); sleep(150);
+	   }
+	   bot.drivetrain.stopDriving(); sleep(500);
+
     }
 }
