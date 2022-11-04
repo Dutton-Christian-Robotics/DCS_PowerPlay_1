@@ -1,9 +1,11 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 
+@Disabled
 @Autonomous(name = "Left Hand 1 AuUtonomous", group = "Left")
 public class LeftHand1AutonomousOpMode extends LinearOpMode {
     ProductionBot bot;
