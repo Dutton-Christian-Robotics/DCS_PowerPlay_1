@@ -72,7 +72,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   CLAW_SERVO_NAME = "claw";
 //	   CLAW_POSITION_OPEN = 0.15;
 //	   CLAW_POSITION_CLOSED = 0.8;
-	   CLAW_POSITION_OPEN = 0.8;	// in adding the "replacement" claw, we discovered its positions were reversed. So hence the change
+	   CLAW_POSITION_OPEN = 0.7;	// in adding the "replacement" claw, we discovered its positions were reversed. So hence the change
 	   CLAW_POSITION_CLOSED = 0.15;
 
 	   IMU_SENSOR_NAME = "imu";
