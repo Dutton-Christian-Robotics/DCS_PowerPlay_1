@@ -88,13 +88,13 @@ public class RightHand0AutonomousOpMode extends LinearOpMode {
 //		  bot.drivetrain.stopDriving();
 
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(650);
+		  sleep(600);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
 		  bot.drivetrain.driveByVelocity(-0.1, -0.6, 0);
-		  sleep(1200);
+		  sleep(1050);
 
 		  bot.drivetrain.stopDriving();
 

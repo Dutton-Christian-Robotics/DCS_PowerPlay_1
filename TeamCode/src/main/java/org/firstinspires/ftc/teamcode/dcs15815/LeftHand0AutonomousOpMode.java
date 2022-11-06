@@ -72,22 +72,34 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 		  sleep(400);
 
 	   } else if (foundTagId == 1) {
-		  bot.drivetrain.driveByVelocity(0.2, 0, 0);
-		  sleep(50);
-
-		  bot.drivetrain.stopDriving();
-		  sleep(200);
-
-		  bot.drivetrain.driveByVelocity(0, -0.25, 0);
-		  sleep(2100);
-
-		  bot.drivetrain.stopDriving();
-		  sleep(400);
+//		  bot.drivetrain.driveByVelocity(0.2, 0, 0);
+//		  sleep(50);
+//
+//		  bot.drivetrain.stopDriving();
+//		  sleep(200);
+//
+//		  bot.drivetrain.driveByVelocity(0, -0.25, 0);
+//		  sleep(2100);
+//
+//		  bot.drivetrain.stopDriving();
+//		  sleep(400);
+//
+//		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
+//		  sleep(600);
+//
+//		  bot.drivetrain.stopDriving();
 
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
 		  sleep(600);
 
 		  bot.drivetrain.stopDriving();
+		  sleep(400);
+
+		  bot.drivetrain.driveByVelocity(-0.1, -0.6, 0);
+		  sleep(1400);
+
+		  bot.drivetrain.stopDriving();
+
 
 	   } else if (foundTagId == 2) {
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
@@ -97,13 +109,13 @@ public class LeftHand0AutonomousOpMode extends LinearOpMode {
 
 	   } else if (foundTagId == 3) {
 		  bot.drivetrain.driveByVelocity(0.3, 0, 0);
-		  sleep(725);
+		  sleep(600);
 
 		  bot.drivetrain.stopDriving();
 		  sleep(400);
 
 		  bot.drivetrain.driveByVelocity(0, 0.5, 0);
-		  sleep(1200);
+		  sleep(1100);
 
 		  bot.drivetrain.stopDriving();
 
