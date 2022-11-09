@@ -64,40 +64,28 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 	   boolean keepTurning = true;
 	   ElapsedTime timer = new ElapsedTime();
 	   long sleepLength = 10;
+	   double powerCutoffThreshold = 0.01;
+	   double targetAngle = angleWrap(angle);
+
 	   //Orientation orientation;
 
+	   DefenderPIDController pid = new DefenderPIDController(
+			 configDouble("NAVIGATION_ROTATION_KP"),
+			 configDouble("NAVIGATION_ROTATION_KI"),
+			 configDouble("NAVIGATION_ROTATION_KD")
+	   );
+	   double power;
 	   do {
 		  currentAngle = sensors.getIntegratedHeading();
-		  difference = currentAngle - angle;
-		  absDifference = Math.abs(difference);
+//		  difference = currentAngle - angle;
+//		  absDifference = Math.abs(difference);
 
-		  if (between(absDifference, tolerance, 2 * tolerance) && (difference < 0)) {
-			 drivetrain.drive(0, 0, -1 * maxPower / 8);
-			 sleep(sleepLength);
-
-		  } else if (between(absDifference, tolerance, 4 * tolerance) && (difference < 0)) {
-			 drivetrain.drive(0, 0, -1 * maxPower / 4);
-			 sleep(sleepLength);
-
-		  } else if ((absDifference > 4 * tolerance) && (difference < 0)) {
-			 drivetrain.drive(0, 0, -1 * maxPower);
-			 sleep(sleepLength);
-
-		  } else if (between(absDifference, tolerance, 2 * tolerance) && (difference > 0)) {
-			 drivetrain.drive(0, 0, maxPower / 8);
-			 sleep(sleepLength);
-
-		  } else if (between(absDifference, tolerance, 4 * tolerance) && (difference > 0)) {
-			 drivetrain.drive(0, 0, maxPower / 4);
-			 sleep(sleepLength);
-
-		  } else if ((absDifference > 4 * tolerance) && (difference > 0)) {
-			 drivetrain.drive(0, 0, maxPower);
-			 sleep(sleepLength);
-		  } else {
-			 keepTurning = false;
-			 bot.stopDriving();
+		  power = pid.calculatePower(targetAngle, currentAngle);
+		  if (power <= powerCutoffThreshold) {
+			 break;
 		  }
+		  drivetrain.drive(0, 0, -1 * power);
+		  sleep(sleepLength);
 
 		  if (timer.milliseconds() >= timeout) {
 			 keepTurning = false;
@@ -234,6 +222,17 @@ public class ProductionBotNavigation extends DefenderBotSystem {
     public void resetAndDriveToPosition(double x, double y) {
 	   resetPositionTracking();
 	   driveToPosition(x, y);
+    }
+
+    public double angleWrap(double degrees) {
+	   double radians = Math.toRadians(degrees);
+	   while (radians > Math.PI) {
+		  degrees -= 2 * Math.PI;
+	   }
+	   while (radians < -Math.PI) {
+		  radians += 2 * Math.PI;
+	   }
+	   return Math.toDegrees(radians);
     }
 
 
