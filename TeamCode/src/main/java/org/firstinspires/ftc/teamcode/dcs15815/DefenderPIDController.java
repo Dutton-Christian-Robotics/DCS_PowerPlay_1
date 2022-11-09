@@ -16,7 +16,7 @@ public class DefenderPIDController {
 	   this.kD = kD;
     }
 
-    public double calculatePower(int referencePosition, int currentPosition) {
+    public double calculatePower(double referencePosition, double currentPosition) {
 		double error = referencePosition - currentPosition;
 		integralSum += error + timer.seconds();
 		double derivative = (error - lastError) / timer.seconds();
