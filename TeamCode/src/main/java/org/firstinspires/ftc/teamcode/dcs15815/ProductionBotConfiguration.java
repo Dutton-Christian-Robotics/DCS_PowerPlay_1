@@ -35,6 +35,10 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public long NAVIGATION_TICKS_PER_ROTATION;
     public double NAVIGATION_WHEEL_RADIUS;
     public double NAVIGATION_INCHES_PER_TICK;
+    public double NAVIGATION_ROTATION_KP = 0;
+    public double NAVIGATION_ROTATION_KI = 0;
+    public double NAVIGATION_ROTATION_KD = 0;
+
 
     public String CAMERA_NAME;
     public double VISION_THRESHOLD_DETECTION;
@@ -84,8 +88,11 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   NAVIGATION_TOLERANCE_ROTATION = 0.3;
 	   NAVIGATION_TOLERANCE_X = 1.0;
 	   NAVIGATION_TOLERANCE_Y = 1.0;
+	   NAVIGATION_ROTATION_KP = 0.05;
+	   NAVIGATION_ROTATION_KI = 0;
+	   NAVIGATION_ROTATION_KD = 0;
 
-	   NAVIGATION_GEAR_RATIO = 0.26; //is this right?
+	   NAVIGATION_GEAR_RATIO = 1; //is this right?
 	   NAVIGATION_TICKS_PER_ROTATION = 280;
 	   NAVIGATION_WHEEL_RADIUS = 2; // 4 inches diameter
 	   NAVIGATION_INCHES_PER_TICK = (2 * Math.PI * NAVIGATION_GEAR_RATIO * NAVIGATION_WHEEL_RADIUS) / NAVIGATION_TICKS_PER_ROTATION;;
