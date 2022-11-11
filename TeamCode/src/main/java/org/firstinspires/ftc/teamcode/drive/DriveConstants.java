@@ -37,7 +37,7 @@ public class DriveConstants {
 //    public static PIDFCoefficients MOTOR_VELO_PID = new PIDFCoefficients(35, 0, 15,
 //            getMotorVelocityF(MAX_RPM / 60 * TICKS_PER_REV));
 
-    public static PIDFCoefficients MOTOR_VELO_PID = new PIDFCoefficients(2, 0, 0  , 210    );
+    public static PIDFCoefficients MOTOR_VELO_PID = new PIDFCoefficients(25, 0, 0  , 36    );
 
     /*
      * These are physical constants that can be determined from your robot (including the track
@@ -48,8 +48,8 @@ public class DriveConstants {
      * convenience. Make sure to exclude any gear ratio included in MOTOR_CONFIG from GEAR_RATIO.
      */
     public static double WHEEL_RADIUS = 2; // in
-    public static double GEAR_RATIO = 1; // output (wheel) speed / input (motor) speed
-    public static double TRACK_WIDTH = 10; // in
+    public static double GEAR_RATIO = 1.8; // output (wheel) speed / input (motor) speed
+    public static double TRACK_WIDTH = 13.62; // in
 
     /*
      * These are the feedforward parameters used to model the drive motor behavior. If you are using
@@ -57,7 +57,7 @@ public class DriveConstants {
      * motor encoders or have elected not to use them for velocity control, these values should be
      * empirically tuned.
      */
-    public static double kV = 0;
+    public static double kV = 0.00585;
     public static double kA = 0;
     public static double kStatic = 0;
 
@@ -101,9 +101,9 @@ public class DriveConstants {
      * https://github.com/acmerobotics/road-runner-quickstart/issues/91
 
      */
-    public static double MAX_VEL = 47;
+    public static double MAX_VEL = 30;
     public static double MAX_ACCEL = 90;
-    public static double MAX_ANG_VEL = Math.toRadians(360);
+    public static double MAX_ANG_VEL = 7.404444217681885;
     public static double MAX_ANG_ACCEL = Math.toRadians(360);
 
 
