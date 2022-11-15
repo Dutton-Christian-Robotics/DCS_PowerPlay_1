@@ -66,26 +66,26 @@ public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
 	   if (foundTagId < 1) { // for some reason couldn't find tag, park in terminal
 
 	   } else if (foundTagId == 1) {
-		  Trajectory traj = bot.navigation.drivetrain.trajectoryBuilder(startingPose)
+		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
 				.splineTo(new Vector2d(-36, -36), 0)
 				.splineTo(new Vector2d(-60, -36), 0)
 				.build();
-		  bot.navigation.drivetrain.followTrajectory(traj);
+		  bot.navigation.followTrajectory(traj);
 
 
 	   } else if (foundTagId == 2) {
-		  Trajectory trajectory = bot.navigation.drivetrain.trajectoryBuilder(startingPose)
+		  Trajectory trajectory = bot.navigation.trajectoryBuilder(startingPose)
 				.forward(24)
 				.build();
-		  bot.navigation.drivetrain.followTrajectory(trajectory);
+		  bot.navigation.followTrajectory(trajectory);
 
 
 	   } else if (foundTagId == 3) {
-		  Trajectory traj = bot.navigation.drivetrain.trajectoryBuilder(startingPose)
+		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
 				.splineTo(new Vector2d(-36, -36), 0)
 				.splineTo(new Vector2d(-12, -36), 0)
 				.build();
-		  bot.navigation.drivetrain.followTrajectory(traj);
+		  bot.navigation.followTrajectory(traj);
 
 	   } else {
 		  telemetry.addData("position", "found");
