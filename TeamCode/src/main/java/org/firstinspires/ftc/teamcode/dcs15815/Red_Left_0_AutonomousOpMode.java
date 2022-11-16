@@ -6,15 +6,15 @@ import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /*
- Alliance Color: either blue or red
- Starting Position: touching wall, contained within tile A5 (blue) or F2 (red); camera pointed at signal
+ Alliance Color: red
+ Starting Position: touching wall, contained within tile F2; camera pointed at signal
  Tasks:
  	1) determine signal zone from team-supplied signal sleeve
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
-@Autonomous(name = "RR Left Hand 0 Autonomous", group = "Left")
-public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
+@Autonomous(name = "Red Left 0 Autonomous", group = "Left")
+public class Red_Left_0_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
     int foundTagId = -1;
 
@@ -24,26 +24,8 @@ public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
 	   telemetry.update();
 
 	   bot = new ProductionAutonomousBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
-//		if (bot == null) {
-//		    telemetry.addData("bot", "null");
-//		}
-//	   if (bot.drivetrain == null) {
-//		  telemetry.addData("drivetrain", "null");
-//	   } else {
-//		  telemetry.addData("drivetrain", bot.drivetrain.getClass().getName());
-//	   }
-//		if (bot.navigation == null) {
-//		  telemetry.addData("navigation", "null");
-//	   }
-//	   if (bot.sensors == null) {
-//		  telemetry.addData("sensors", "null");
-//	   }
-//	   if (bot.vision == null) {
-//		  telemetry.addData("vision", "null");
-//	   }
 
-	   Pose2d startingPose = new Pose2d(-65, 36, 0);
-//	   Pose2d startingPose = new Pose2d(65, -36, Math.toRadians(90));
+	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
 
 	   while (!isStarted() && !isStopRequested()) {
 		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
@@ -56,15 +38,12 @@ public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
 		  telemetry.update();
 		  sleep(20);
 	   }
-//	   waitForStart();
-
-// I'm hoping that the tag will always be identified before start
-//	   while (foundTagId < 1) {
-//		  sleep(100);
-//		  foundTagId = bot.vision.searchForTags();
-//	   }
 
 	   if (foundTagId < 1) { // for some reason couldn't find tag, park in terminal
+		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
+				.strafeLeft(24)
+				.build();
+		  bot.navigation.followTrajectory(traj);
 
 	   } else if (foundTagId == 1) {
 		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
@@ -85,13 +64,11 @@ public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
 
 //		  bot.navigation.followTrajectory(traj);
 
-
 	   } else if (foundTagId == 2) {
 		  Trajectory trajectory = bot.navigation.trajectoryBuilder(startingPose)
 				.forward(36)
 				.build();
 		  bot.navigation.followTrajectory(trajectory);
-
 
 	   } else if (foundTagId == 3) {
 		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
