@@ -42,7 +42,8 @@ public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
 //		  telemetry.addData("vision", "null");
 //	   }
 
-	   Pose2d startingPose = new Pose2d(-36, -60, 0);
+	   Pose2d startingPose = new Pose2d(-65, 36, 0);
+//	   Pose2d startingPose = new Pose2d(65, -36, Math.toRadians(90));
 
 	   while (!isStarted() && !isStopRequested()) {
 		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
@@ -67,25 +68,48 @@ public class LeftHand0RrAutonomousOpMode extends LinearOpMode {
 
 	   } else if (foundTagId == 1) {
 		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
-				.splineTo(new Vector2d(-36, -36), 0)
-				.splineTo(new Vector2d(-60, -36), 0)
+				.splineTo(new Vector2d(-38, 36), 0)
+				.splineTo(new Vector2d(-30, 63), 0)
 				.build();
 		  bot.navigation.followTrajectory(traj);
+//		  Trajectory traj1 = bot.navigation.trajectoryBuilder(new Pose2d())
+//				.forward(30)
+//				.build();
+//
+//		  Trajectory traj2 = bot.navigation.trajectoryBuilder(traj1.end())
+//				.strafeLeft(80)
+//				.build();
+//
+//		  bot.navigation.followTrajectory(traj1);
+//		  bot.navigation.followTrajectory(traj2);
+
+//		  bot.navigation.followTrajectory(traj);
 
 
 	   } else if (foundTagId == 2) {
 		  Trajectory trajectory = bot.navigation.trajectoryBuilder(startingPose)
-				.forward(24)
+				.forward(36)
 				.build();
 		  bot.navigation.followTrajectory(trajectory);
 
 
 	   } else if (foundTagId == 3) {
 		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
-				.splineTo(new Vector2d(-36, -36), 0)
-				.splineTo(new Vector2d(-12, -36), 0)
+				.splineTo(new Vector2d(-38, 36), 0)
+				.splineTo(new Vector2d(-30, 12), 0)
 				.build();
 		  bot.navigation.followTrajectory(traj);
+//		  Trajectory traj1 = bot.navigation.trajectoryBuilder(new Pose2d())
+//				.forward(30)
+//				.build();
+//
+//		  Trajectory traj2 = bot.navigation.trajectoryBuilder(traj1.end())
+//				.strafeRight(80)
+//				.build();
+//
+//		  bot.navigation.followTrajectory(traj1);
+//		  bot.navigation.followTrajectory(traj2);
+
 
 	   } else {
 		  telemetry.addData("position", "found");
