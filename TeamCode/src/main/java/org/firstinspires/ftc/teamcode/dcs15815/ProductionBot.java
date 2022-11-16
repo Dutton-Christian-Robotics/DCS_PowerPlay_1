@@ -14,7 +14,7 @@ public class ProductionBot extends DefenderBot {
     public ProductionBotLift lift;
 
 
-    ProductionBot(HardwareMap hm, Class configClass, Telemetry t) {
+    public ProductionBot(HardwareMap hm, Class configClass, Telemetry t) {
 	   super(hm, configClass, t);
 
 	   drivetrain = addSystem(ProductionBotMecanumDrivetrain.class);
