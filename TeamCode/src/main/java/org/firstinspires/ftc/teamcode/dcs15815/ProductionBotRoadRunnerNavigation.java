@@ -31,6 +31,10 @@ public class ProductionBotRoadRunnerNavigation extends DefenderBotSystem {
 	   return roadrunner.trajectoryBuilder(startPose);
     }
 
+    public void turn(double angle) {
+	   roadrunner.turn(angle);
+    }
+
 
 
 
