@@ -20,7 +20,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 
     public double GAMEPAD2_RIGHT_STICK_CURVE, GAMEPAD2_RIGHT_STICK_MAX;
 
-    public String CLAW_SERVO_NAME;
+    public String CLAW_SERVO_NAME = "claw";
     public double CLAW_POSITION_OPEN;
     public double CLAW_POSITION_CLOSED;
 
@@ -43,12 +43,12 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public Pose2d NAVIGATION_START_RED_LEFT = new Pose2d(-65, 36, 0);
     public Pose2d NAVIGATION_START_RED_RIGHT = new Pose2d(-65, -36, 0);
 
-    public Pose2d NAVIGATION_START_BLUE_LEFT = new Pose2d(65, -36, Math.toRadians(180));
-    public Pose2d NAVIGATION_START_BLUE_RIGHT = new Pose2d(65, 36, Math.toRadians(180));
+    public Pose2d NAVIGATION_START_BLUE_LEFT = new Pose2d(65, -36, 0);
+    public Pose2d NAVIGATION_START_BLUE_RIGHT = new Pose2d(65, 36, 0);
 
 
-    public String CAMERA_NAME;
-    public double VISION_THRESHOLD_DETECTION;
+    public String CAMERA_NAME = "Webcam 1";
+    public double VISION_THRESHOLD_DETECTION = 18;
 
     ProductionBotConfiguration() {
 	   super();
@@ -80,12 +80,11 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   LIFT_MOTOR_KI = 0;
 	   LIFT_MOTO_KD = 0;
 
-	   CLAW_SERVO_NAME = "claw";
 //	   CLAW_POSITION_OPEN = 0.15; // original metal claw
-	   CLAW_POSITION_OPEN = 0; // original metal claw
-	   CLAW_POSITION_CLOSED = 0.8;
-//	   CLAW_POSITION_OPEN = 0.8;	// in adding the "replacement" claw, we discovered its positions were reversed. So hence the change
-//	   CLAW_POSITION_CLOSED = 0.15;
+//	   CLAW_POSITION_OPEN = 0; // original metal claw
+//	   CLAW_POSITION_CLOSED = 0.8;
+	   CLAW_POSITION_OPEN = 0.8;	// in adding the "replacement" claw, we discovered its positions were reversed. So hence the change
+	   CLAW_POSITION_CLOSED = 0.15;
 
 	   IMU_SENSOR_NAME = "imu";
 	   IMU_AXES_ORDER = AxesOrder.XYZ;
@@ -103,10 +102,6 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   NAVIGATION_TICKS_PER_ROTATION = 280;
 	   NAVIGATION_WHEEL_RADIUS = 2; // 4 inches diameter
 	   NAVIGATION_INCHES_PER_TICK = (2 * Math.PI * NAVIGATION_GEAR_RATIO * NAVIGATION_WHEEL_RADIUS) / NAVIGATION_TICKS_PER_ROTATION;
-
-	   CAMERA_NAME = "Webcam 1";
-	   VISION_THRESHOLD_DETECTION = 18;
-
 
 	   for (Field f : ProductionBotConfiguration.class.getDeclaredFields()) {
 		  fieldHashtable.put(f.getName(), f);
