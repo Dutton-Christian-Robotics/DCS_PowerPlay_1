@@ -1,32 +1,31 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 /*
- Alliance Color: red
- Starting Position: touching wall, contained within tile F2; camera pointed at signal
+ Alliance Color: blue
+ Starting Position: touching wall, contained within tile ?; camera pointed at signal
  Tasks:
  	1) determine signal zone from team-supplied signal sleeve
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
-@Autonomous(name = "Red Left 0 Autonomous", group = "Red")
-public class Red_Left_0_AutonomousOpMode extends LinearOpMode {
+@Autonomous(name = "Blue Right 0 Autonomous", group = "Blue")
+public class Blue_Right_0_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
     int foundTagId = -1;
 
     @Override
     public void runOpMode() {
-	   telemetry.addData("Position", "Red Left");
+	   telemetry.addData("Position", "Blue Right");
 	   telemetry.addData("Bot", "initializing...");
 	   telemetry.update();
 
 	   bot = new ProductionAutonomousBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
 
-	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
+	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_BLUE_RIGHT");
 
 	   while (!isStarted() && !isStopRequested()) {
 		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
@@ -42,18 +41,11 @@ public class Red_Left_0_AutonomousOpMode extends LinearOpMode {
 
 	   if (foundTagId < 1) { // for some reason couldn't find tag, park in terminal
 		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
-				.strafeLeft(24)
+				.strafeRight(24)
 				.build();
 		  bot.navigation.followTrajectory(traj);
 
 	   } else if (foundTagId == 1) {
-//		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
-//				.splineToConstantHeading(new Vector2d(-38, 36), 0)
-//				.splineToConstantHeading(new Vector2d(-38, 63), 0)
-//				.splineToConstantHeading(new Vector2d(-24, 63), 0)
-//				.build();
-//		  bot.navigation.followTrajectory(traj);
-
 		  Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
 				.forward(30)
 				.build();
@@ -79,13 +71,6 @@ public class Red_Left_0_AutonomousOpMode extends LinearOpMode {
 		  bot.navigation.followTrajectory(trajectory);
 
 	   } else if (foundTagId == 3) {
-//		  Trajectory traj = bot.navigation.trajectoryBuilder(startingPose)
-//				.splineTo(new Vector2d(-38, 36), 0)
-//				.splineTo(new Vector2d(-38, 12), 0)
-//				.splineTo(new Vector2d(-24, 12), 0)
-//				.build();
-//		  bot.navigation.followTrajectory(traj);
-
 		  Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
 				.forward(30)
 				.build();

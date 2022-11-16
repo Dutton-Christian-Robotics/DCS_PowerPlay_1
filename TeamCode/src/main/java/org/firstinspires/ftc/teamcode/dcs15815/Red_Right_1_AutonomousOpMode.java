@@ -1,7 +1,6 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
@@ -13,20 +12,20 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
-@Autonomous(name = "Red Left 1 Autonomous", group = "Red")
-public class Red_Left_1_AutonomousOpMode extends LinearOpMode {
+@Autonomous(name = "Red Right 1 Autonomous", group = "Red")
+public class Red_Right_1_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
     int foundTagId = -1;
 
     @Override
     public void runOpMode() {
-	   telemetry.addData("Position", "Red Left");
+	   telemetry.addData("Position", "Red Right");
 	   telemetry.addData("Bot", "initializing...");
 	   telemetry.update();
 
 	   bot = new ProductionAutonomousBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
 
-	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
+	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_RIGHT");
 
 	   bot.claw.close();
 
@@ -48,11 +47,11 @@ public class Red_Left_1_AutonomousOpMode extends LinearOpMode {
 			 .forward(30)
 			 .build();
 
-	   Trajectory traj2 = bot.navigation.trajectoryBuilder(traj1.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
+	   Trajectory traj2 = bot.navigation.trajectoryBuilder(traj1.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
 			 .forward(36)
 			 .build();
 
-	   Trajectory traj3 = bot.navigation.trajectoryBuilder(traj2.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
+	   Trajectory traj3 = bot.navigation.trajectoryBuilder(traj2.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
 			 .forward(4)
 			 .build();
 
@@ -60,26 +59,26 @@ public class Red_Left_1_AutonomousOpMode extends LinearOpMode {
 			 .back(5)
 			 .build();
 
-	   Trajectory traj5_1 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
-			 .forward(60)
+	   Trajectory traj5_1 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
+			 .forward(10)
 			 .build();
-	   Trajectory traj5_2 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
+	   Trajectory traj5_2 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
 			 .forward(36)
 			 .build();
-	   Trajectory traj5_3 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
-			 .forward(10)
+	   Trajectory traj5_3 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
+			 .forward(60)
 			 .build();
 
 	   bot.navigation.followTrajectory(traj1);
-	   bot.navigation.turn(Math.toRadians(-90));
+	   bot.navigation.turn(Math.toRadians(90));
 	   bot.navigation.followTrajectory(traj2);
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1250);
-	   bot.navigation.turn(Math.toRadians(90));
+	   bot.navigation.turn(Math.toRadians(-90));
 	   bot.navigation.followTrajectory(traj3);
 	   bot.claw.open(); sleep(2000);
 	   bot.navigation.followTrajectory(traj4);
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(2000);
-	   bot.navigation.turn(Math.toRadians(90));
+	   bot.navigation.turn(Math.toRadians(-90));
 
 	   if (foundTagId < 1) {
 
