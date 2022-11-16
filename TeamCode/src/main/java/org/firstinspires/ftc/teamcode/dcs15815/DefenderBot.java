@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
@@ -107,6 +108,10 @@ public class DefenderBot {
 
     public String getConfigString(String key) {
 	   return this.configuration.getString(key);
+    }
+
+    public Pose2d configPose2d(String key) {
+	   return (Pose2d) this.configuration.get(key);
     }
 
 }

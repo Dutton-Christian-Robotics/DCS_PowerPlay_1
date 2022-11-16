@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -72,5 +73,9 @@ abstract class DefenderBotSystem {
 
     public DefenderBotPosition configDefenderBotPosition(String key) {
 	   return (DefenderBotPosition) configuration.get(key);
+    }
+
+    public Pose2d configPose2d(String key) {
+	   return (Pose2d) configuration.get(key);
     }
 }
