@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DefenderBot {
 
     private HardwareMap hardwareMap;
-    protected DefenderBotConfiguration configuration;
+    public DefenderBotConfiguration configuration;
     public DefenderBotDrivetrain drivetrain;
     public DefenderBotSystem sensors;
     public DefenderBotSystem navigation;
