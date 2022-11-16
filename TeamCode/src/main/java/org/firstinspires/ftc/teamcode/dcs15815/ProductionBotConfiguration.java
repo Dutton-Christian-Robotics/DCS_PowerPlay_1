@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.dcs15815;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -38,6 +39,12 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public double NAVIGATION_ROTATION_KP = 0;
     public double NAVIGATION_ROTATION_KI = 0;
     public double NAVIGATION_ROTATION_KD = 0;
+
+    public Pose2d NAVIGATION_START_RED_LEFT = new Pose2d(-65, 36, 0);
+    public Pose2d NAVIGATION_START_RED_RIGHT = new Pose2d(-65, -36, 0);
+
+    public Pose2d NAVIGATION_START_BLUE_LEFT = new Pose2d(65, -36, Math.toRadians(180));
+    public Pose2d NAVIGATION_START_BLUE_RIGHT = new Pose2d(65, 36, Math.toRadians(180));
 
 
     public String CAMERA_NAME;
