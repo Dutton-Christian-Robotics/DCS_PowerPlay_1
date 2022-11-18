@@ -1,20 +1,23 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+
+import org.firstinspires.ftc.teamcode.dcs15815.ProductionAutonomousBot;
+import org.firstinspires.ftc.teamcode.dcs15815.ProductionBotConfiguration;
 /*
- Alliance Color: red
- Starting Position: touching wall, contained within tile ?; camera pointed at signal
+ Alliance Color: either
+ Starting Position: touching wall, contained within tile F5 (red) or A2 (blue); camera pointed at signal
  Tasks:
  	1) determine signal zone from team-supplied signal sleeve
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
 
-@Autonomous(name = "Right 0 Autonomous", group = "Right")
+@Autonomous(name = "Right 0", group = "Right")
 public class Right_0_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
     int foundTagId = -1;
