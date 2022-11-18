@@ -13,7 +13,6 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
-@Disabled
 @Autonomous(name = "Left 0 Autonomous", group = "Left")
 public class Left_0_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;

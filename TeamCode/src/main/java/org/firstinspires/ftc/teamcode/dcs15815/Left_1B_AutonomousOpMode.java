@@ -9,12 +9,12 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
  Alliance Color: red
  Starting Position: touching wall, contained within tile F2; camera pointed at signal
  Tasks:
- 	1) determine signal zone from team-supplied signal sleeve
- 	2) park within signal zone (or terminal if there's a detection failure)
+ 	1)
+ 	2)
  */
 
-@Autonomous(name = "Left 1a Autonomous", group = "Left")
-public class Left_1A_AutonomousOpMode extends LinearOpMode {
+@Autonomous(name = "Left 1b Autonomous", group = "Left")
+public class Left_1B_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
     int foundTagId = -1;
 
@@ -50,45 +50,48 @@ public class Left_1A_AutonomousOpMode extends LinearOpMode {
 			 .build();
 
 	   Trajectory traj2 = bot.navigation.trajectoryBuilder(traj1.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
-			 .forward(36)
+			 .forward(23)
 			 .build();
 
-	   Trajectory traj3 = bot.navigation.trajectoryBuilder(traj2.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
-			 .forward(4)
+	   Trajectory traj3 = bot.navigation.trajectoryBuilder(traj2.end().plus(new Pose2d(0, 0, Math.toRadians(45))))
+			 .forward(10)
 			 .build();
 
 	   Trajectory traj4 = bot.navigation.trajectoryBuilder(traj3.end())
-			 .back(5)
+			 .back(11)
 			 .build();
 
-	   Trajectory traj5_1 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
-			 .forward(60)
+	   Trajectory traj5_1 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(135))))
+			 .forward(48)
 			 .build();
-	   Trajectory traj5_2 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
-			 .forward(36)
+	   Trajectory traj5_2 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(135))))
+			 .forward(23)
 			 .build();
-	   Trajectory traj5_3 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(90))))
-			 .forward(10)
+	   Trajectory traj5_3 = bot.navigation.trajectoryBuilder(traj4.end().plus(new Pose2d(0, 0, Math.toRadians(45))))
+			 .forward(12)
 			 .build();
 
 	   bot.navigation.followTrajectory(traj1);
 	   bot.navigation.turn(Math.toRadians(-90));
 	   bot.navigation.followTrajectory(traj2);
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1250);
-	   bot.navigation.turn(Math.toRadians(90));
+	   bot.navigation.turn(Math.toRadians(45));
 	   bot.navigation.followTrajectory(traj3);
 	   bot.claw.open(); sleep(2000);
 	   bot.navigation.followTrajectory(traj4);
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(2000);
-	   bot.navigation.turn(Math.toRadians(90));
+
 
 	   if (foundTagId < 1) {
 
 	   } else if (foundTagId == 1) {
+		  bot.navigation.turn(Math.toRadians(135));
 		  bot.navigation.followTrajectory(traj5_1);
 	   } else if (foundTagId == 2) {
+		  bot.navigation.turn(Math.toRadians(135));
 		  bot.navigation.followTrajectory(traj5_2);
 	   } else if (foundTagId == 3) {
+		  bot.navigation.turn(Math.toRadians(45));
 		  bot.navigation.followTrajectory(traj5_3);
 	   }
     }
