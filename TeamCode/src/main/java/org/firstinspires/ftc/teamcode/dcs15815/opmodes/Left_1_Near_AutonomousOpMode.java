@@ -58,7 +58,7 @@ public class Left_1_Near_AutonomousOpMode extends LinearOpMode {
 			 .build();
 
 	   Trajectory traj3 = bot.navigation.trajectoryBuilder(traj2.end().plus(new Pose2d(0, 0, Math.toRadians(45))))
-			 .forward(10)
+			 .forward(11)
 			 .build();
 
 	   Trajectory traj4 = bot.navigation.trajectoryBuilder(traj3.end())

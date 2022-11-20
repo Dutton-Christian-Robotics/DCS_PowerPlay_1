@@ -52,31 +52,39 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 		  sleep(20);
 	   }
 
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(1500);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(1000);
 
+	   // Drive forward
 	   Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
-			 .forward(55)
+			 .forward(57)
 			 .build();
 
+	   // Forward to the junction after turn
 	   Trajectory traj2 = bot.navigation.trajectoryBuilder(traj1.end().plus(new Pose2d(0, 0, Math.toRadians(-45))))
-			 .forward(9)
+			 .forward(7)
 			 .build();
 
+	   // back away from junction
 	   Trajectory traj3 = bot.navigation.trajectoryBuilder(traj2.end())
-			 .back(9)
+			 .back(7)
 			 .build();
 
+	   // drive toward stack after turn
 	    Trajectory traj4 = bot.navigation.trajectoryBuilder(traj3.end().plus(new Pose2d(0, 0, Math.toRadians(135))))
-		  .forward(27)
+		  .forward(28)
 		  .build();
 
+	    // drive back toward junction
 	   Trajectory traj5 = bot.navigation.trajectoryBuilder(traj4.end())
-			 .back(26)
+			 .back(24)
 			 .build();
+
+	   // drive toward junction
 	   Trajectory traj6 = bot.navigation.trajectoryBuilder(traj5.end().plus(new Pose2d(0, 0, Math.toRadians(-135))))
 			 .forward(9)
 			 .build();
 
+	   // back away from junction
 	   Trajectory traj7 = bot.navigation.trajectoryBuilder(traj6.end())
 			 .back(10)
 			 .build();
@@ -88,7 +96,7 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 	   bot.navigation.followTrajectory(traj2);
 	   bot.claw.open(); sleep(1500);
 	   bot.navigation.followTrajectory(traj3);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_STACKTOP")); sleep(2000);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_STACKTOP")); sleep(1000);
 	   bot.navigation.turn(Math.toRadians(135));
 	   bot.navigation.followTrajectory(traj4);
 	   bot.claw.close(); sleep(1000);
@@ -97,9 +105,9 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 	   bot.navigation.turn(Math.toRadians(-135));
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1000);
 	   bot.navigation.followTrajectory(traj6);
-	   bot.claw.open(); sleep(1500);
+	   bot.claw.open(); sleep(1000);
 	   bot.navigation.followTrajectory(traj7);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(2000);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(1250);
 	   bot.navigation.turn(Math.toRadians(-45));
 
 
@@ -122,10 +130,10 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 
 	   } else if (foundTagId == 3) {
 		  Trajectory traj8 = bot.navigation.trajectoryBuilder(traj7.end().plus(new Pose2d(0, 0, Math.toRadians(-45))))
-				.forward(24)
+				.forward(26)
 				.build();
 		  Trajectory traj9 = bot.navigation.trajectoryBuilder(traj8.end().plus(new Pose2d(0, 0, Math.toRadians(-90))))
-				.forward(21)
+				.forward(23)
 				.build();
 		  bot.navigation.followTrajectory(traj8);
 		  bot.navigation.turn(Math.toRadians(-90));
