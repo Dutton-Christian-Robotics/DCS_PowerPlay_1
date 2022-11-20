@@ -16,6 +16,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.ProductionBotConfiguration;
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
+@Disabled
 @Autonomous(name = "Left 1a Autonomous", group = "Left")
 public class Left_1A_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
