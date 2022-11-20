@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.dcs15815.testing;
+package org.firstinspires.ftc.teamcode.dcs15815.opmodes_testing;
 
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
