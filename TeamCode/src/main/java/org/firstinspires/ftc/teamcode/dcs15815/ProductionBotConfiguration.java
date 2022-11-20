@@ -75,7 +75,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   LIFT_POSITION_HIGH = 2200;
 	   LIFT_POSITION_MIDDLE = 1500;
 	   LIFT_POSITION_LOW = 1100;
-	   LIFT_POSITION_STACKTOP = 650;
+	   LIFT_POSITION_STACKTOP = 600;
 	   LIFT_POSITION_GROUND = 0;
 	   LIFT_MOTOR_KP = 0;
 	   LIFT_MOTOR_KI = 0;
