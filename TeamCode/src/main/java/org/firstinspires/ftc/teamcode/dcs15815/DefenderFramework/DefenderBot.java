@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -10,17 +10,17 @@ import java.util.ArrayList;
 
 public class DefenderBot {
 
-    private HardwareMap hardwareMap;
+    public HardwareMap hardwareMap;
     public DefenderBotConfiguration configuration;
     public DefenderBotDrivetrain drivetrain;
     public DefenderBotSystem sensors;
     public DefenderBotSystem navigation;
 
-    protected ArrayList<DefenderBotSystem> systems = new ArrayList<DefenderBotSystem>();
+    public ArrayList<DefenderBotSystem> systems = new ArrayList<DefenderBotSystem>();
     public Telemetry telemetry;
 
 
-    DefenderBot(HardwareMap hm, Class<?> configClass, Telemetry t) {
+    public DefenderBot(HardwareMap hm, Class<?> configClass, Telemetry t) {
 	   hardwareMap = hm;
 
 	   try {

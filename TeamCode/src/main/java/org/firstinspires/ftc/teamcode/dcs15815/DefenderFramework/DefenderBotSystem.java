@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
@@ -7,19 +7,17 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 
-import java.util.ArrayList;
-
-abstract class DefenderBotSystem {
-    protected HardwareMap hardwareMap;
-    protected DefenderBotConfiguration configuration;
-    protected DefenderBot bot;
+abstract public class DefenderBotSystem {
+    public HardwareMap hardwareMap;
+    public DefenderBotConfiguration configuration;
+    public DefenderBot bot;
     private boolean logging = false;
 
     // Systems are generally responsible for their own setup. To make that happen, this abstract
     // parent class saves references to the hardwareMap provided by the opmode, the properties
     // file that was used when creating the bot instances, and a reference to the bot itself
     // (useful for things like accessing telemetry)
-    DefenderBotSystem(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public DefenderBotSystem(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   this.hardwareMap = hm;
 	   this.configuration = config;
 	   this.bot = b;

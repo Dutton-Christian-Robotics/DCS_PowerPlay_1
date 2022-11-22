@@ -4,18 +4,18 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.dcs15815.ProductionBot;
-import org.firstinspires.ftc.teamcode.dcs15815.ProductionBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBot;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
 
 @Disabled
 @TeleOp(name = "Lift Test", group = "Testing")
 public class LiftTestOpMode extends LinearOpMode
 {
-    ProductionBot bot;
+    EdwardScissorliftBot bot;
 
     @Override
     public void runOpMode() {
-	   bot = new ProductionBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
 
 	   waitForStart();
 

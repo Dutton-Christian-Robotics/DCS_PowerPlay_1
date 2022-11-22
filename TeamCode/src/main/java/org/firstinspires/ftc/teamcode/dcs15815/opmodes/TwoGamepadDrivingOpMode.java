@@ -1,12 +1,17 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderAnalogModifier;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderDebouncer;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBot;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+
 @TeleOp(name = "Two Gamepad Driving", group = "Competition")
 public class TwoGamepadDrivingOpMode extends LinearOpMode
 {
-    ProductionBot bot;
+    EdwardScissorliftBot bot;
     private DefenderDebouncer liftUpDebouncer, liftDownDebouncer, liftGroundDebouncer, clawDebouncer;
     private DefenderAnalogModifier gamepad2RightStickModifier;
     int currentLiftPositionIndex = 0;
@@ -15,7 +20,7 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 
     @Override
     public void runOpMode() {
-	   bot = new ProductionBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
 
 	   gamepad2RightStickModifier = new DefenderAnalogModifier(
 		  bot.getConfigDouble("GAMEPAD2_RIGHT_STICK_CURVE"),

@@ -1,12 +1,18 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.matrices.GeneralMatrixF;
 import org.firstinspires.ftc.robotcore.external.matrices.MatrixF;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotPosition;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotSystem;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderPIDController;
+
 import com.qualcomm.robotcore.util.ElapsedTime;
 
-public class ProductionBotNavigation extends DefenderBotSystem {
+public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
 
     private final GeneralMatrixF encoderMatrix = new GeneralMatrixF(3, 1);
     private int frontLeftOffset;
@@ -18,10 +24,10 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 
     private DcMotor backLeft, frontLeft, frontRight, backRight;
 
-    private ProductionBotSensors sensors;
-    private ProductionBotMecanumDrivetrain drivetrain;
+    private EdwardScissorliftBotSensors sensors;
+    private EdwardScissorliftBotMecanumDrivetrain drivetrain;
 
-    ProductionBotNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    EdwardScissorliftBotNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   float[] data = {1.0f, 1.0f, 1.0f,
@@ -31,11 +37,11 @@ public class ProductionBotNavigation extends DefenderBotSystem {
 	   conversion = conversion.inverted();
 
 
-	   sensors = (ProductionBotSensors)((ProductionBot)bot).sensors;
+	   sensors = (EdwardScissorliftBotSensors)((EdwardScissorliftBot)bot).sensors;
 
     }
 
-    public void linkDrivetrain(ProductionBotMecanumDrivetrain dt) {
+    public void linkDrivetrain(EdwardScissorliftBotMecanumDrivetrain dt) {
 	   drivetrain = dt;
 //	   System.out.println("FLAG");
 //	   System.out.println(drivetrain == null ? "null" : "exists");

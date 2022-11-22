@@ -1,13 +1,14 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
 
 import java.lang.reflect.Field;
 
-public class ProductionBotConfiguration extends DefenderBotConfiguration {
+public class EdwardScissorliftBotConfiguration extends DefenderBotConfiguration {
 
     public double DRIVETRAIN_POWER_MAX;
     public int DRIVETRAIN_MAX_TICKS_PER_SECOND;
@@ -15,7 +16,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public String LIFT_LEFT_MOTOR_NAME, LIFT_RIGHT_MOTOR_NAME;
     public DcMotorSimple.Direction LIFT_LEFT_MOTOR_DIRECTION, LIFT_RIGHT_MOTOR_DIRECTION;
     public double LIFT_POWER_MAX;
-    public int LIFT_POSITION_MAX, LIFT_POSITION_HIGH, LIFT_POSITION_MIDDLE, LIFT_POSITION_LOW, LIFT_POSITION_STACKTOP, LIFT_POSITION_GROUND;
+    public int LIFT_POSITION_MAX, LIFT_POSITION_HIGH, LIFT_POSITION_BELOW_HIGH, LIFT_POSITION_MIDDLE, LIFT_POSITION_LOW, LIFT_POSITION_STACKTOP, LIFT_POSITION_GROUND;
     public double LIFT_MOTOR_KP, LIFT_MOTOR_KI, LIFT_MOTO_KD;
 
     public double GAMEPAD2_RIGHT_STICK_CURVE, GAMEPAD2_RIGHT_STICK_MAX;
@@ -40,9 +41,9 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public double NAVIGATION_ROTATION_KI = 0;
     public double NAVIGATION_ROTATION_KD = 0;
 
+    // Unused since moving to robot-relative RoadRunner movement instead of absolute
     public Pose2d NAVIGATION_START_RED_LEFT = new Pose2d(-65, 36, 0);
     public Pose2d NAVIGATION_START_RED_RIGHT = new Pose2d(-65, -36, 0);
-
     public Pose2d NAVIGATION_START_BLUE_LEFT = new Pose2d(65, -36, 0);
     public Pose2d NAVIGATION_START_BLUE_RIGHT = new Pose2d(65, 36, 0);
 
@@ -50,7 +51,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
     public String CAMERA_NAME = "Webcam 1";
     public double VISION_THRESHOLD_DETECTION = 18;
 
-    ProductionBotConfiguration() {
+    EdwardScissorliftBotConfiguration() {
 	   super();
 	   DRIVETRAIN_BACKLEFT_MOTOR_NAME = "back_left_motor";
 	   DRIVETRAIN_FRONTLEFT_MOTOR_NAME = "front_left_motor";
@@ -73,6 +74,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 
 	   LIFT_POSITION_MAX = 2200;
 	   LIFT_POSITION_HIGH = 2200;
+	   LIFT_POSITION_BELOW_HIGH = 2000;
 	   LIFT_POSITION_MIDDLE = 1500;
 	   LIFT_POSITION_LOW = 1100;
 	   LIFT_POSITION_STACKTOP = 600;
@@ -81,10 +83,12 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   LIFT_MOTOR_KI = 0;
 	   LIFT_MOTO_KD = 0;
 
+	   // We've changed these several times as we've swapped claws whose
+	   // servo positions were reversed
 //	   CLAW_POSITION_OPEN = 0.15; // original metal claw
 //	   CLAW_POSITION_OPEN = 0; // original metal claw
 //	   CLAW_POSITION_CLOSED = 0.8;
-	   CLAW_POSITION_OPEN = 0.8;	// in adding the "replacement" claw, we discovered its positions were reversed. So hence the change
+	   CLAW_POSITION_OPEN = 0.8;
 	   CLAW_POSITION_CLOSED = 0.15;
 
 	   IMU_SENSOR_NAME = "imu";
@@ -106,7 +110,7 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   NAVIGATION_WHEEL_RADIUS = 2; // 4 inches diameter
 	   NAVIGATION_INCHES_PER_TICK = (2 * Math.PI * NAVIGATION_GEAR_RATIO * NAVIGATION_WHEEL_RADIUS) / NAVIGATION_TICKS_PER_ROTATION;
 
-	   for (Field f : ProductionBotConfiguration.class.getDeclaredFields()) {
+	   for (Field f : EdwardScissorliftBotConfiguration.class.getDeclaredFields()) {
 		  fieldHashtable.put(f.getName(), f);
 	   }
 

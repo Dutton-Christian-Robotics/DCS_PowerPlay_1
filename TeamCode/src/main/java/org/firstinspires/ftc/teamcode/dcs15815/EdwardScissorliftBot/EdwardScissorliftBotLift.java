@@ -1,14 +1,19 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-public class ProductionBotLift extends DefenderBotSystem {
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotSystem;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderPIDController;
+
+public class EdwardScissorliftBotLift extends DefenderBotSystem {
 
     public DcMotorEx leftMotor, rightMotor;
     private DefenderPIDController pidController;
 
-    ProductionBotLift(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    EdwardScissorliftBotLift(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 	   pidController = new DefenderPIDController(
 			 configDouble("LIFT_MOTOR_KP"),

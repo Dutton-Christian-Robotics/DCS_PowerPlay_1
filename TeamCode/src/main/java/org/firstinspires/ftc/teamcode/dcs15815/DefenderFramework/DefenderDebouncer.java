@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework;
 
 import com.qualcomm.robotcore.util.ElapsedTime;
 
@@ -11,7 +11,7 @@ public class DefenderDebouncer implements Runnable {
     private Runnable codeBlock;
     private boolean isFirstRun = true;
 
-    DefenderDebouncer(long t, Runnable block) {
+    public DefenderDebouncer(long t, Runnable block) {
 	   timeout = t;
 	   timer = new ElapsedTime();
 	   timer.reset();

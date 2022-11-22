@@ -5,8 +5,8 @@ import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.dcs15815.ProductionAutonomousBot;
-import org.firstinspires.ftc.teamcode.dcs15815.ProductionBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
 /*
  Alliance Color: either
  Starting Position: touching wall, contained within tile F2 (red) or A5 (blue); camera pointed at signal
@@ -22,9 +22,9 @@ import org.firstinspires.ftc.teamcode.dcs15815.ProductionBotConfiguration;
  	9) turn towards alliance
  */
 
-@Autonomous(name = "Left 2 Autonomous", group = "Left")
-public class Left_2_AutonomousOpMode extends LinearOpMode {
-    ProductionAutonomousBot bot;
+@Autonomous(name = "Left 2a Autonomous", group = "Left")
+public class Left_2a_AutonomousOpMode extends LinearOpMode {
+    EdwardScissorliftAutonomousBot bot;
     int foundTagId = -1;
 
     @Override
@@ -33,7 +33,7 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 	   telemetry.addData("Bot", "initializing...");
 	   telemetry.update();
 
-	   bot = new ProductionAutonomousBot(hardwareMap, ProductionBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
 
 //	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
 	   Pose2d startingPose = new Pose2d();

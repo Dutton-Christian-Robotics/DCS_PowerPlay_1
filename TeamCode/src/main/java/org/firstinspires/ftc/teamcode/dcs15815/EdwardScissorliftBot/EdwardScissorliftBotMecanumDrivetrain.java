@@ -1,17 +1,20 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 
-import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotDrivetrain;
 
-public class ProductionBotMecanumDrivetrain extends DefenderBotDrivetrain {
+
+public class EdwardScissorliftBotMecanumDrivetrain extends DefenderBotDrivetrain {
 
     public DcMotorEx backLeft, frontLeft, frontRight, backRight;
 
 
-    ProductionBotMecanumDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    EdwardScissorliftBotMecanumDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   backLeft = hm.get(DcMotorEx.class, configString("DRIVETRAIN_BACKLEFT_MOTOR_NAME"));

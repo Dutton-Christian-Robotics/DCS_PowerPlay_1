@@ -1,7 +1,11 @@
-package org.firstinspires.ftc.teamcode.dcs15815;
+package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotSystem;
+
 import org.openftc.apriltag.AprilTagDetection;
 import org.openftc.easyopencv.OpenCvCamera;
 import org.openftc.easyopencv.OpenCvCameraFactory;
@@ -11,7 +15,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 import java.util.ArrayList;
 
 
-public class ProductionBotVision extends DefenderBotSystem {
+public class EdwardScissorliftBotVision extends DefenderBotSystem {
     OpenCvWebcam webcam;
     AprilTagDetectionPipeline pipeline;
     private int _foundTagId = -1;
@@ -32,7 +36,7 @@ public class ProductionBotVision extends DefenderBotSystem {
 
     AprilTagDetection tagOfInterest = null;
 
-    ProductionBotVision(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    EdwardScissorliftBotVision(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 	   int cameraMonitorViewId = hm.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hm.appContext.getPackageName());
 	   webcam = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, configString("CAMERA_NAME")), cameraMonitorViewId);
