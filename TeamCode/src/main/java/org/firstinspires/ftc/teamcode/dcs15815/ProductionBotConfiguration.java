@@ -99,6 +99,8 @@ public class ProductionBotConfiguration extends DefenderBotConfiguration {
 	   NAVIGATION_ROTATION_KI = 0;
 	   NAVIGATION_ROTATION_KD = 0;
 
+	   // These are constants for the homegrown navigation.
+	   // This is unused since implementing RoadRunner
 	   NAVIGATION_GEAR_RATIO = 1; //is this right?
 	   NAVIGATION_TICKS_PER_ROTATION = 280;
 	   NAVIGATION_WHEEL_RADIUS = 2; // 4 inches diameter
