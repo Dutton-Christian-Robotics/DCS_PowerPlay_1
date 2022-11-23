@@ -5,9 +5,9 @@ import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.acmerobotics.roadrunner.trajectory.TrajectoryBuilder;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotSystem;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
 // TODO: after tuning, take guts of SampleMecanumDrive and make them the internals here

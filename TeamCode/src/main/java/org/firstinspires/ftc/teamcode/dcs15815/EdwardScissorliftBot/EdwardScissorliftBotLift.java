@@ -3,10 +3,10 @@ package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotConfiguration;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBotSystem;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderPIDController;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
+import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderPIDController;
 
 public class EdwardScissorliftBotLift extends DefenderBotSystem {
 

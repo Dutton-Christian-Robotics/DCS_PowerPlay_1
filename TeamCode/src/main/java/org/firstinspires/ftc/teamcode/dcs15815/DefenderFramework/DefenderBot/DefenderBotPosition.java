@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework;
+package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot;
 
 public class DefenderBotPosition {
     private double x;
