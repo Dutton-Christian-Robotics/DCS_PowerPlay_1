@@ -2,16 +2,14 @@ package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderAction
 
 public class DefenderAction {
     protected String label;
-    public DefenderAction nextAction;
-    protected boolean isFinished;
-    protected DefenderActionSequence actionSequence;
+    public DefenderAction nextAction, previousAction;
+    protected boolean isFinished = false;
+    public DefenderActionSequence actionSequence;
 
-    DefenderAction() {
-	   isFinished = false;
+    public DefenderAction() {
     }
 
-    DefenderAction(DefenderActionSequence sm) {
-	   isFinished = false;
+    public DefenderAction(DefenderActionSequence sm) {
 	   setActionSequence(sm);
     }
 
@@ -46,17 +44,21 @@ public class DefenderAction {
 
     public void setNextAction(DefenderAction ns) {
 	   nextAction = ns;
+	   ns.previousAction = this;
     }
 
 
-    public void andThen(DefenderAction ns) {
+    public DefenderAction then(DefenderAction ns) {
 	   nextAction = ns;
+	   ns.previousAction = this;
+	   return this;
     }
 
-    public void andThenAfterPause(long wait, DefenderAction ns) {
+    public DefenderAction thenAfterPause(long wait, DefenderAction ns) {
 	   WaitAction waitAction = new WaitAction(wait);
-	   andThen(waitAction);
-	   waitAction.andThen(ns);
+	   then(waitAction);
+	   waitAction.then(ns);
+	   return this;
     }
 
     public AndAction and(DefenderAction s) {
@@ -75,13 +77,13 @@ public class DefenderAction {
 
     public void follows(DefenderAction... actions) {
 	   for (DefenderAction s : actions) {
-		  s.andThen(this);
+		  s.then(this);
 	   }
     }
 
     public void followsAfterPause(long wait, DefenderAction... actions) {
 	   for (DefenderAction s : actions) {
-		  s.andThenAfterPause(wait, this);
+		  s.thenAfterPause(wait, this);
 	   }
     }
 

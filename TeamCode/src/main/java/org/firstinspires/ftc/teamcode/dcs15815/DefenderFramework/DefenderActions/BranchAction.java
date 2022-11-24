@@ -6,7 +6,7 @@ public class BranchAction extends EventAction {
     protected DefenderEvent trigger;
     protected String payloadName;
 
-    BranchAction(DefenderEvent e, String pn) {
+    public BranchAction(DefenderEvent e, String pn) {
 	   super();
 	   trigger = e;
 	   payloadName = pn;
