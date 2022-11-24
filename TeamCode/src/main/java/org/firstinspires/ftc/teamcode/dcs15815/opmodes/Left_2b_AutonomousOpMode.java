@@ -8,6 +8,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
 /*
+ NOTE: this is the opmode as it was after Fruitport, with:
+  1) reorganization of whitespace
+  2) changes to cone release and addition of ground pound after stack grab
+
  Alliance Color: either
  Starting Position: touching wall, contained within tile F2 (red) or A5 (blue); camera pointed at signal
  Tasks:
