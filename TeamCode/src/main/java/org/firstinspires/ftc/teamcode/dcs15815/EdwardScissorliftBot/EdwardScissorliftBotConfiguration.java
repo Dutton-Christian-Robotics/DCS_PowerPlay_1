@@ -17,6 +17,14 @@ public class EdwardScissorliftBotConfiguration extends DefenderBotConfiguration 
     public DcMotorSimple.Direction LIFT_LEFT_MOTOR_DIRECTION, LIFT_RIGHT_MOTOR_DIRECTION;
     public double LIFT_POWER_MAX;
     public int LIFT_POSITION_MAX, LIFT_POSITION_HIGH, LIFT_POSITION_BELOW_HIGH, LIFT_POSITION_MIDDLE, LIFT_POSITION_LOW, LIFT_POSITION_STACKTOP, LIFT_POSITION_GROUND;
+    public static int S_LIFT_POSITION_MAX = 2200;
+    public static int S_LIFT_POSITION_HIGH = 2200;
+    public static int S_LIFT_POSITION_BELOW_HIGH = 2000;
+    public static int S_LIFT_POSITION_MIDDLE = 1500;
+    public static int S_LIFT_POSITION_LOW = 1100;
+    public static int S_LIFT_POSITION_STACKTOP = 600;
+    public static int S_LIFT_POSITION_GROUND = 0;
+
     public double LIFT_MOTOR_KP, LIFT_MOTOR_KI, LIFT_MOTO_KD;
 
     public double GAMEPAD2_RIGHT_STICK_CURVE, GAMEPAD2_RIGHT_STICK_MAX;
