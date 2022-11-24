@@ -1,25 +1,38 @@
 package org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderActions;
 
+import com.acmerobotics.roadrunner.geometry.Pose2d;
+
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
 import java.util.ArrayList;
 import java.util.Hashtable;
 
 public class DefenderActionSequence {
 
-    private DefenderAction currentAction;
+    public DefenderAction currentAction, lastAddedAction;
     public DefenderBot bot;
+    public Pose2d currentPose;
     private boolean isFinished;
     private ArrayList<DefenderEventSource> eventSources;
     protected ArrayList<DefenderEvent> currentEvents;
     protected Hashtable<String,DefenderActionVariable> variables = new Hashtable<>();
 
 
-    DefenderActionSequence(DefenderBot b) {
+    public DefenderActionSequence(DefenderBot b, Pose2d sp) {
 	   eventSources = new ArrayList<>();
 	   bot = b;
 	   isFinished = false;
 	   currentEvents = new ArrayList<>();
+	   currentPose = sp;
     }
+
+    public static <T extends DefenderAction> DefenderActionSequence newWithActions(DefenderBot b, T... actions) {
+	   DefenderActionSequence das = new DefenderActionSequence(b, new Pose2d());
+	   das.addActions(actions);
+
+	   return das;
+    }
+
+
 
     public void addEventSource(DefenderEventSource s) {
 	   eventSources.add(s);
@@ -57,6 +70,23 @@ public class DefenderActionSequence {
 
     public DefenderAction getCurrentAction() {
 	   return currentAction;
+    }
+
+    public void then(DefenderAction ns) {
+	   lastAddedAction.then(ns);
+    }
+
+    public <T extends DefenderAction> void addActions(T... actions) {
+
+	   for (T a : actions) {
+		  if (currentAction == null) {
+			 setAction(a);
+		  } else {
+			 lastAddedAction.then(a);
+		  }
+		  lastAddedAction = a;
+
+		}
     }
 
     public void run() {
