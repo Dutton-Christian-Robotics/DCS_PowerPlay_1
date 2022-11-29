@@ -8,7 +8,7 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 // Only two methods are defined--both of which are "pass through" methods from the DefenderBot class
 public abstract class DefenderBotDrivetrain extends DefenderBotSystem {
 
-    DefenderBotDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public DefenderBotDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
     }
 

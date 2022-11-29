@@ -208,14 +208,14 @@ public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
 	   driveToPosition(position.getX(), position.getY(), position.getHeading());
     }
 
-    public DefenderBotPosition getCurrentPosition() {
-	   double[] d = getDistanceInches();
-	   return new DefenderBotPosition(d[1], d[0], sensors.getIntegratedHeading());
-    }
+//    public DefenderBotPosition getCurrentPosition() {
+//	   double[] d = getDistanceInches();
+//	   return new DefenderBotPosition(d[1], d[0], sensors.getIntegratedHeading());
+//    }
 
-    public void driveToRelativePosition(double dX, double dY) {
-	   driveToPosition(getCurrentPosition().relativePosition(dX, dY));
-    }
+//    public void driveToRelativePosition(double dX, double dY) {
+//	   driveToPosition(getCurrentPosition().relativePosition(dX, dY));
+//    }
 
     public void driveToRelativePosition(double dX, double dY, double heading) {
 //	   driveToPosition(getCurrentPosition().relativePosition(dX, dY), heading);

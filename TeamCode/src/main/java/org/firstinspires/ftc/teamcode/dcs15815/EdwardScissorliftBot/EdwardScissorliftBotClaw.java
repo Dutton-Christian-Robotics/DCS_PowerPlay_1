@@ -7,11 +7,11 @@ import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.Def
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 
-public class EdwardScissorliftBotClas extends DefenderBotSystem {
+public class EdwardScissorliftBotClaw extends DefenderBotSystem {
 
     private Servo clawServo;
 
-    EdwardScissorliftBotClas(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    EdwardScissorliftBotClaw(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   clawServo = hm.servo.get(configString("CLAW_SERVO_NAME"));

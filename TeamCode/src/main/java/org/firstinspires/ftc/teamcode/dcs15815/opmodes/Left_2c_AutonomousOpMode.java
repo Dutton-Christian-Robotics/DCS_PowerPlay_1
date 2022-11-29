@@ -33,7 +33,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.SwitchAction
  	9) turn towards alliance
  */
 
-@Autonomous(name = "Left 2b Autonomous", group = "Left")
+@Autonomous(name = "Left 2c Autonomous", group = "Left")
 public class Left_2c_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;
     int foundTagId = -1;

@@ -39,20 +39,23 @@ public class Left_2b_AutonomousOpMode extends LinearOpMode {
     double CLOCKWISE_135 = Math.toRadians(-135);
     double COUNTER_CLOCKWISE_135 = Math.toRadians(135);
 
-    int LIFT_POSITION_HIGH = bot.getConfigInt("LIFT_POSITION_HIGH");
-    int LIFT_POSITION_BELOW_HIGH = bot.getConfigInt("LIFT_POSITION_BELOW_HIGH");
-    int LIFT_POSITION_STACKTOP = bot.getConfigInt("LIFT_POSITION_STACKTOP");
-    int LIFT_POSITION_LOW = bot.getConfigInt("LIFT_POSITION_LOW");
-    int LIFT_POSITION_GROUND = bot.getConfigInt("LIFT_POSITION_GROUND");
+    int LIFT_POSITION_HIGH = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_HIGH;
+    int LIFT_POSITION_BELOW_HIGH = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_BELOW_HIGH;
+    int LIFT_POSITION_STACKTOP = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_STACKTOP;
+    int LIFT_POSITION_LOW = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_LOW;
+    int LIFT_POSITION_GROUND = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_GROUND;
 
 
     @Override
     public void runOpMode() {
 	   telemetry.addData("Position", "Left");
 	   telemetry.addData("Bot", "initializing...");
-	   telemetry.update();
 
 	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+
+	   telemetry.addData("claw", bot.claw != null);
+	   telemetry.update();
+
 
 //	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
 	   Pose2d startingPose = new Pose2d();

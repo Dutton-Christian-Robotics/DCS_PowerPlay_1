@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.Def
 
 public class EdwardScissorliftBot extends DefenderBot {
 
-    public EdwardScissorliftBotClas claw;
+    public EdwardScissorliftBotClaw claw;
     public EdwardScissorliftBotVision vision;
     public EdwardScissorliftBotSensors sensors;
     public EdwardScissorliftBotNavigation navigation;
@@ -20,7 +20,7 @@ public class EdwardScissorliftBot extends DefenderBot {
 
 	   drivetrain = addSystem(EdwardScissorliftBotMecanumDrivetrain.class);
 	   lift = addSystem(EdwardScissorliftBotLift.class);
-	   claw = addSystem(EdwardScissorliftBotClas.class);
+	   claw = addSystem(EdwardScissorliftBotClaw.class);
 	   sensors = addSystem(EdwardScissorliftBotSensors.class);
 	   navigation = addSystem(EdwardScissorliftBotNavigation.class);
 //	   navigation = new ProductionBotNavigation(hm, configuration, this);

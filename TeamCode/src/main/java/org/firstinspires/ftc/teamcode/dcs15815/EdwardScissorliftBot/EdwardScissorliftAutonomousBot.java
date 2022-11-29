@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.Def
 
 public class EdwardScissorliftAutonomousBot extends DefenderBot {
 
-    public EdwardScissorliftBotClas claw;
+    public EdwardScissorliftBotClaw claw;
     public EdwardScissorliftBotVision vision;
     public EdwardScissorliftBotSensors sensors;
     public EdwardScissorliftBotRoadRunnerNavigation navigation;
@@ -20,7 +20,7 @@ public class EdwardScissorliftAutonomousBot extends DefenderBot {
 
 	   drivetrain = addSystem(EdwardScissorliftBotMecanumDrivetrain.class);
 	   lift = addSystem(EdwardScissorliftBotLift.class);
-	   claw = addSystem(EdwardScissorliftBotClas.class);
+	   claw = addSystem(EdwardScissorliftBotClaw.class);
 	   sensors = addSystem(EdwardScissorliftBotSensors.class);
 	   navigation = addSystem(EdwardScissorliftBotRoadRunnerNavigation.class);
 	   vision = addSystem(EdwardScissorliftBotVision.class); // is something happening here in vision that is causing invisible crashes?

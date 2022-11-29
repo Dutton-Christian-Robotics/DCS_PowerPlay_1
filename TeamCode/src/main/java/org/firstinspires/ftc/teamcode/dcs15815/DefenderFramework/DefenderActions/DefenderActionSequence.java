@@ -25,6 +25,10 @@ public class DefenderActionSequence {
 	   currentPose = sp;
     }
 
+    public DefenderActionSequence(DefenderBot b) {
+	   this(b, new Pose2d());
+    }
+
     public static <T extends DefenderAction> DefenderActionSequence newWithActions(DefenderBot b, T... actions) {
 	   DefenderActionSequence das = new DefenderActionSequence(b, new Pose2d());
 	   das.addActions(actions);
