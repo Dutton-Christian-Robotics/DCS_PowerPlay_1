@@ -80,7 +80,11 @@ public class DefenderActionSequence {
 	   lastAddedAction.then(ns);
     }
 
-    public <T extends DefenderAction> void addActions(T... actions) {
+    public <T extends DefenderAction> DefenderActionSequence addAction(T action) {
+	   return addActions(action);
+    }
+
+    public <T extends DefenderAction> DefenderActionSequence addActions(T... actions) {
 
 	   for (T a : actions) {
 		  if (currentAction == null) {
@@ -91,6 +95,7 @@ public class DefenderActionSequence {
 		  lastAddedAction = a;
 
 		}
+	   return this;
     }
 
     public void run() {
