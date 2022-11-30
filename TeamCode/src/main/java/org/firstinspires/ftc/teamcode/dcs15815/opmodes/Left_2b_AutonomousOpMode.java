@@ -18,12 +18,13 @@ import org.firstinspires.ftc.teamcode.dcs15815.ProductionBotConfiguration;
  	5) grab top cone
  	6) reverse and turn towards midfield left tall junction
  	7) deliver cone
- 	8) park within signal zone (no fallback for not sensing signal)
- 	9) turn towards alliance
+ 	8) repeat 4-6
+ 	9) park within signal zone (no fallback for not sensing signal)
+ 	10) turn towards alliance
  */
 
-@Autonomous(name = "Left 2 Autonomous", group = "Left")
-public class Left_2_AutonomousOpMode extends LinearOpMode {
+@Autonomous(name = "Left 2b Autonomous", group = "Left")
+public class Left_2b_AutonomousOpMode extends LinearOpMode {
     ProductionAutonomousBot bot;
     int foundTagId = -1;
 
@@ -86,7 +87,7 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 
 	   // back away from junction
 	   Trajectory traj7 = bot.navigation.trajectoryBuilder(traj6.end())
-			 .back(10)
+			 .back(9)
 			 .build();
 
 
@@ -118,8 +119,39 @@ public class Left_2_AutonomousOpMode extends LinearOpMode {
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(500);
 
 	   bot.navigation.followTrajectory(traj7);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_STACKTOP")); sleep(150);
+	   bot.navigation.turn(Math.toRadians(135));
+
+	   // drive toward stack after turn
+	   Trajectory traj7_1 = bot.navigation.trajectoryBuilder(traj7.end().plus(new Pose2d(0, 0, Math.toRadians(135))))
+			 .forward(28)
+			 .build();
+	   bot.navigation.followTrajectory(traj7_1);
+	   bot.claw.close(); sleep(150);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(150);
+
+	   Trajectory traj7_2 = bot.navigation.trajectoryBuilder(traj7_1.end())
+			 .back(24)
+			 .build();
+	   bot.navigation.followTrajectory(traj7_2);
 	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(150);
-	   bot.navigation.turn(Math.toRadians(-45));
+	   bot.navigation.turn(Math.toRadians(-135));
+
+	   // drive toward junction
+	   Trajectory traj7_3 = bot.navigation.trajectoryBuilder(traj7_2.end().plus(new Pose2d(0, 0, Math.toRadians(-135))))
+			 .forward(9)
+			 .build();
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(500);
+	   bot.navigation.followTrajectory(traj7_3);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_BELOW_HIGH")); sleep(150);
+	   bot.claw.open(); sleep(150);
+	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(500);
+
+
+	   // back away from junction
+	   Trajectory traj7_4 = bot.navigation.trajectoryBuilder(traj7_3.end())
+			 .back(9)
+			 .build();
 
 
 
