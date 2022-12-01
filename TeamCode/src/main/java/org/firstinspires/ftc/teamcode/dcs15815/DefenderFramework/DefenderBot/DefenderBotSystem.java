@@ -14,12 +14,12 @@ abstract public class DefenderBotSystem {
     private boolean logging = false;
 
     // Systems are generally responsible for their own setup. To make that happen, this abstract
-    // parent class saves references to the hardwareMap provided by the opmode, the properties
-    // file that was used when creating the bot instances, and a reference to the bot itself
-    // (useful for things like accessing telemetry)
-    public DefenderBotSystem(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    // parent class saves references to the hardwareMap provided by the opmode and a reference to
+    // the bot itself (useful for things like accessing telemetry). It also used to keep a copy
+    // of the configuration file, but since then we've moved to static configuration properties
+    // and not instantiated configuration objects
+    public DefenderBotSystem(HardwareMap hm, DefenderBot b) {
 	   this.hardwareMap = hm;
-	   this.configuration = config;
 	   this.bot = b;
     }
 

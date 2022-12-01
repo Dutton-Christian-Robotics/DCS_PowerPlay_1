@@ -38,7 +38,7 @@ public class EdwardScissorliftBotConfiguration extends DefenderBotConfiguration 
 
     public static double LIFT_MOTOR_KP = 0;
     public static double LIFT_MOTOR_KI = 0;
-    public static double LIFT_MOTO_KD = 0;
+    public static double LIFT_MOTOR_KD = 0;
 
     public static double GAMEPAD2_RIGHT_STICK_CURVE = 2;
     public static double GAMEPAD2_RIGHT_STICK_MAX = 1;

@@ -11,10 +11,10 @@ public class EdwardScissorliftBotClaw extends DefenderBotSystem {
 
     private Servo clawServo;
 
-    public EdwardScissorliftBotClaw(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
-	   super(hm, config, b);
+    public EdwardScissorliftBotClaw(HardwareMap hm, DefenderBot b) {
+	   super(hm, b);
 
-	   clawServo = hm.servo.get(configString("CLAW_SERVO_NAME"));
+	   clawServo = hm.servo.get(EdwardScissorliftBotConfiguration.CLAW_SERVO_NAME);
     }
 
 // ----------------------------------------
@@ -27,11 +27,11 @@ public class EdwardScissorliftBotClaw extends DefenderBotSystem {
 
 
     public void open() {
-	   setClawPosition(configDouble("CLAW_POSITION_OPEN"));
+	   setClawPosition(EdwardScissorliftBotConfiguration.CLAW_POSITION_OPEN);
     }
 
     public void close() {
-	   setClawPosition(configDouble("CLAW_POSITION_CLOSED"));
+	   setClawPosition(EdwardScissorliftBotConfiguration.CLAW_POSITION_CLOSED);
 
     }
 

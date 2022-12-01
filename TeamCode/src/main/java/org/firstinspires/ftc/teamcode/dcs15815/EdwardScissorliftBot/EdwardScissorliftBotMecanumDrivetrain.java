@@ -14,18 +14,18 @@ public class EdwardScissorliftBotMecanumDrivetrain extends DefenderBotDrivetrain
     public DcMotorEx backLeft, frontLeft, frontRight, backRight;
 
 
-    public EdwardScissorliftBotMecanumDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
-	   super(hm, config, b);
+    public EdwardScissorliftBotMecanumDrivetrain(HardwareMap hm, DefenderBot b) {
+	   super(hm, b);
 
-	   backLeft = hm.get(DcMotorEx.class, configString("DRIVETRAIN_BACKLEFT_MOTOR_NAME"));
-	   frontLeft = hm.get(DcMotorEx.class, configString("DRIVETRAIN_FRONTLEFT_MOTOR_NAME"));
-	   frontRight = hm.get(DcMotorEx.class, configString("DRIVETRAIN_FRONTRIGHT_MOTOR_NAME"));
-	   backRight = hm.get(DcMotorEx.class, configString("DRIVETRAIN_BACKRIGHT_MOTOR_NAME"));
+	   backLeft = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.DRIVETRAIN_BACKLEFT_MOTOR_NAME);
+	   frontLeft = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.DRIVETRAIN_FRONTLEFT_MOTOR_NAME);
+	   frontRight = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.DRIVETRAIN_FRONTRIGHT_MOTOR_NAME);
+	   backRight = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.DRIVETRAIN_BACKRIGHT_MOTOR_NAME);
 
-	   backLeft.setDirection(configMotorDirection("DRIVETRAIN_BACKLEFT_MOTOR_DIRECTION"));
-	   frontLeft.setDirection(configMotorDirection("DRIVETRAIN_FRONTLEFT_MOTOR_DIRECTION"));
-	   frontRight.setDirection(configMotorDirection("DRIVETRAIN_FRONTRIGHT_MOTOR_DIRECTION"));
-	   backRight.setDirection(configMotorDirection("DRIVETRAIN_BACKRIGHT_MOTOR_DIRECTION"));
+	   backLeft.setDirection(EdwardScissorliftBotConfiguration.DRIVETRAIN_BACKLEFT_MOTOR_DIRECTION);
+	   frontLeft.setDirection(EdwardScissorliftBotConfiguration.DRIVETRAIN_FRONTLEFT_MOTOR_DIRECTION);
+	   frontRight.setDirection(EdwardScissorliftBotConfiguration.DRIVETRAIN_FRONTRIGHT_MOTOR_DIRECTION);
+	   backRight.setDirection(EdwardScissorliftBotConfiguration.DRIVETRAIN_BACKRIGHT_MOTOR_DIRECTION);
 
 	   resetEncoders();
     }
@@ -66,7 +66,7 @@ public class EdwardScissorliftBotMecanumDrivetrain extends DefenderBotDrivetrain
     }
 
     private void setProportionalPower(double bl, double fl, double fr, double br) {
-	   double largest = configDouble("DRIVETRAIN_POWER_MAX");
+	   double largest = EdwardScissorliftBotConfiguration.DRIVETRAIN_POWER_MAX;
 	   largest = Math.max(largest, Math.abs(bl));
 	   largest = Math.max(largest, Math.abs(fl));
 	   largest = Math.max(largest, Math.abs(fr));
@@ -125,7 +125,7 @@ public class EdwardScissorliftBotMecanumDrivetrain extends DefenderBotDrivetrain
 	   largest = Math.max(largest, Math.abs(frontRightPower));
 	   largest = Math.max(largest, Math.abs(backRightPower));
 
-	   double maxTicksSecond = configInt("DRIVETRAIN_MAX_TICKS_PER_SECOND");
+	   double maxTicksSecond = EdwardScissorliftBotConfiguration.DRIVETRAIN_MAX_TICKS_PER_SECOND;
 
 	   backLeft.setVelocity(backLeftPower / largest * maxTicksSecond);
 	   frontLeft.setVelocity(frontLeftPower / largest * maxTicksSecond);

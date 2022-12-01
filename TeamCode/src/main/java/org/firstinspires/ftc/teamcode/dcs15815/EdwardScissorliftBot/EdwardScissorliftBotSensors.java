@@ -19,8 +19,8 @@ public class EdwardScissorliftBotSensors extends DefenderBotSystem {
     private double integratedHeading = 0;
 
 
-    public EdwardScissorliftBotSensors(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
-	   super(hm, config, b);
+    public EdwardScissorliftBotSensors(HardwareMap hm, DefenderBot b) {
+	   super(hm, b);
 	   imu = hm.get(BNO055IMU.class, "imu");
 	   BNO055IMU.Parameters params = new BNO055IMU.Parameters();
 	   imu.initialize(params);

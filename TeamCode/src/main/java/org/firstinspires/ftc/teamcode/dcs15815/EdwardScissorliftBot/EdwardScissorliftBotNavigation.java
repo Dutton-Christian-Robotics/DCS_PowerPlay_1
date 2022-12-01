@@ -27,8 +27,8 @@ public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
     private EdwardScissorliftBotSensors sensors;
     private EdwardScissorliftBotMecanumDrivetrain drivetrain;
 
-    public EdwardScissorliftBotNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
-	   super(hm, config, b);
+    public EdwardScissorliftBotNavigation(HardwareMap hm, DefenderBot b) {
+	   super(hm, b);
 
 	   float[] data = {1.0f, 1.0f, 1.0f,
 			 1.0f, -1.0f, -1.0f,
@@ -76,9 +76,9 @@ public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
 	   //Orientation orientation;
 
 	   DefenderPIDController pid = new DefenderPIDController(
-			 configDouble("NAVIGATION_ROTATION_KP"),
-			 configDouble("NAVIGATION_ROTATION_KI"),
-			 configDouble("NAVIGATION_ROTATION_KD")
+			 EdwardScissorliftBotConfiguration.NAVIGATION_ROTATION_KP,
+			 EdwardScissorliftBotConfiguration.NAVIGATION_ROTATION_KI,
+			 EdwardScissorliftBotConfiguration.NAVIGATION_ROTATION_KD
 	   );
 	   double power;
 	   do {
@@ -101,19 +101,19 @@ public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
     }
 
     public void comeToHeading(double angle, double powerRatio) {
-	   comeToHeading(angle, powerRatio * configDouble("NAVIGATION_POWER_DEFAULT"), configDouble("NAVIGATION_TOLERANCE_ROTATION"), configLong("NAVIGATION_TIMEOUT_DEFAULT"));
+	   comeToHeading(angle, powerRatio * EdwardScissorliftBotConfiguration.NAVIGATION_POWER_DEFAULT, EdwardScissorliftBotConfiguration.NAVIGATION_TOLERANCE_ROTATION, EdwardScissorliftBotConfiguration.NAVIGATION_TIMEOUT_DEFAULT);
     }
 
     public void comeToHeading(double angle) {
-	   comeToHeading(angle, configDouble("NAVIGATION_POWER_DEFAULT"), configDouble("NAVIGATION_TOLERANCE_ROTATION"), configLong("NAVIGATION_TIMEOUT_DEFAULT"));
+	   comeToHeading(angle, EdwardScissorliftBotConfiguration.NAVIGATION_POWER_DEFAULT, EdwardScissorliftBotConfiguration.NAVIGATION_TOLERANCE_ROTATION, EdwardScissorliftBotConfiguration.NAVIGATION_TIMEOUT_DEFAULT);
     }
 
     double[] getDistanceInches() {
 	   double[] distances = {0.0, 0.0};
 
-	   encoderMatrix.put(0, 0, (float) ((frontLeft.getCurrentPosition() - frontLeftOffset) * configDouble("NAVIGATION_INCHES_PER_TICK")));
-	   encoderMatrix.put(1, 0, (float) ((frontRight.getCurrentPosition() - frontRightOffset) * configDouble("NAVIGATION_INCHES_PER_TICK")));
-	   encoderMatrix.put(2, 0, (float) ((backLeft.getCurrentPosition() - backLeftOffset) * configDouble("NAVIGATION_INCHES_PER_TICK")));
+	   encoderMatrix.put(0, 0, (float) ((frontLeft.getCurrentPosition() - frontLeftOffset) * EdwardScissorliftBotConfiguration.NAVIGATION_INCHES_PER_TICK));
+	   encoderMatrix.put(1, 0, (float) ((frontRight.getCurrentPosition() - frontRightOffset) * EdwardScissorliftBotConfiguration.NAVIGATION_INCHES_PER_TICK));
+	   encoderMatrix.put(2, 0, (float) ((backLeft.getCurrentPosition() - backLeftOffset) * EdwardScissorliftBotConfiguration.NAVIGATION_INCHES_PER_TICK));
 
 	   MatrixF distanceMatrix = conversion.multiplied(encoderMatrix);
 	   distances[0] = distanceMatrix.get(0, 0);
@@ -143,7 +143,7 @@ public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
 	   double rotation = 0;
 	   double averageError = 0;
 
-	   while ((Math.abs(y - d[0]) > configDouble("NAVIGATION_TOLERANCE_Y")) || (Math.abs(x - d[1]) > configDouble("NAVIGATION_TOLERANCE_X")) || (Math.abs(heading - h) > configDouble("NAVIGATION_TOLERANCE_ROTATION"))) {
+	   while ((Math.abs(y - d[0]) > EdwardScissorliftBotConfiguration.NAVIGATION_TOLERANCE_Y) || (Math.abs(x - d[1]) > EdwardScissorliftBotConfiguration.NAVIGATION_TOLERANCE_X) || (Math.abs(heading - h) > EdwardScissorliftBotConfiguration.NAVIGATION_TOLERANCE_ROTATION)) {
 		  deltaX = x - d[1];
 		  deltaY = y - d[0];
 		  deltaH = h - heading;

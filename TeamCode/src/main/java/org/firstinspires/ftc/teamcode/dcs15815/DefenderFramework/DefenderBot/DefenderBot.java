@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class DefenderBot {
 
     public HardwareMap hardwareMap;
-    public DefenderBotConfiguration configuration;
+//    public DefenderBotConfiguration configuration;
     public DefenderBotDrivetrain drivetrain;
     public DefenderBotSystem sensors;
     public DefenderBotSystem navigation;
@@ -24,7 +24,7 @@ public class DefenderBot {
 	   hardwareMap = hm;
 
 	   try {
-		  configuration = (DefenderBotConfiguration) configClass.cast(configClass.getDeclaredConstructor().newInstance());
+//		  configuration = (DefenderBotConfiguration) configClass.cast(configClass.getDeclaredConstructor().newInstance());
 	   } catch (Exception e) {
 		  t.addData("Error", "loading config");
 		  t.update();
@@ -63,7 +63,7 @@ public class DefenderBot {
 
     public <T extends DefenderBotSystem> T addSystem(Class<T> sc) {
 	   try {
-		  T system = sc.cast(sc.getDeclaredConstructor(HardwareMap.class, DefenderBotConfiguration.class, DefenderBot.class).newInstance(hardwareMap, configuration, this));
+		  T system = sc.cast(sc.getDeclaredConstructor(HardwareMap.class, DefenderBot.class).newInstance(hardwareMap, this));
 		  systems.add(system);
 		  return system;
 

@@ -13,18 +13,18 @@ public class EdwardScissorliftBotLift extends DefenderBotSystem {
     public DcMotorEx leftMotor, rightMotor;
     private DefenderPIDController pidController;
 
-    public EdwardScissorliftBotLift(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
-	   super(hm, config, b);
+    public EdwardScissorliftBotLift(HardwareMap hm, DefenderBot b) {
+	   super(hm, b);
 	   pidController = new DefenderPIDController(
-			 configDouble("LIFT_MOTOR_KP"),
-			 configDouble("LIFT_MOTOR_KI"),
-			 configDouble("LIFT_MOTOR_KD")
+			 EdwardScissorliftBotConfiguration.LIFT_MOTOR_KP,
+			 EdwardScissorliftBotConfiguration.LIFT_MOTOR_KI,
+			 EdwardScissorliftBotConfiguration.LIFT_MOTOR_KD
 	   );
 
-	   leftMotor = hm.get(DcMotorEx.class, configString("LIFT_LEFT_MOTOR_NAME"));
-	   rightMotor = hm.get(DcMotorEx.class, configString("LIFT_RIGHT_MOTOR_NAME"));
-	   leftMotor.setDirection(configMotorDirection("LIFT_LEFT_MOTOR_DIRECTION"));
-	   rightMotor.setDirection(configMotorDirection("LIFT_RIGHT_MOTOR_DIRECTION"));
+	   leftMotor = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.LIFT_LEFT_MOTOR_NAME);
+	   rightMotor = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.LIFT_RIGHT_MOTOR_NAME);
+	   leftMotor.setDirection(EdwardScissorliftBotConfiguration.LIFT_LEFT_MOTOR_DIRECTION);
+	   rightMotor.setDirection(EdwardScissorliftBotConfiguration.LIFT_RIGHT_MOTOR_DIRECTION);
 
 	   leftMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
 	   rightMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
@@ -43,8 +43,8 @@ public class EdwardScissorliftBotLift extends DefenderBotSystem {
 	   rightMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
 	   leftMotor.setTargetPosition(p);
 	   rightMotor.setTargetPosition(p);
-	   leftMotor.setPower(configDouble("LIFT_POWER_MAX"));
-	   rightMotor.setPower(configDouble("LIFT_POWER_MAX"));
+	   leftMotor.setPower(EdwardScissorliftBotConfiguration.LIFT_POWER_MAX);
+	   rightMotor.setPower(EdwardScissorliftBotConfiguration.LIFT_POWER_MAX);
     }
 
     public void gotoPosition(int p) {

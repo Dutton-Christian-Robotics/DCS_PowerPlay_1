@@ -36,10 +36,10 @@ public class EdwardScissorliftBotVision extends DefenderBotSystem {
 
     AprilTagDetection tagOfInterest = null;
 
-    public EdwardScissorliftBotVision(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
-	   super(hm, config, b);
+    public EdwardScissorliftBotVision(HardwareMap hm, DefenderBot b) {
+	   super(hm, b);
 	   int cameraMonitorViewId = hm.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hm.appContext.getPackageName());
-	   webcam = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, configString("CAMERA_NAME")), cameraMonitorViewId);
+	   webcam = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, EdwardScissorliftBotConfiguration.CAMERA_NAME), cameraMonitorViewId);
 	   pipeline = new AprilTagDetectionPipeline(tagsize, fx, fy, cx, cy);
 	   webcam.setPipeline(pipeline);
 	   webcam.setMillisecondsPermissionTimeout(2500); // Timeout for obtaining permission is configurable. Set before opening.
