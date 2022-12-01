@@ -23,15 +23,15 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 	   bot = new EdwardScissorliftBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
 
 	   gamepad2RightStickModifier = new DefenderAnalogModifier(
-		  bot.getConfigDouble("GAMEPAD2_RIGHT_STICK_CURVE"),
-		  bot.getConfigDouble("GAMEPAD2_RIGHT_STICK_MAX")
+			 EdwardScissorliftBotConfiguration.GAMEPAD2_RIGHT_STICK_CURVE,
+			 EdwardScissorliftBotConfiguration.GAMEPAD2_RIGHT_STICK_MAX
 	   );
 
 	   liftPositions = new int[]{
-		  bot.getConfigInt("LIFT_POSITION_GROUND"),
-		  bot.getConfigInt("LIFT_POSITION_LOW"),
-		  bot.getConfigInt("LIFT_POSITION_MIDDLE"),
-		  bot.getConfigInt("LIFT_POSITION_HIGH")
+			 EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND,
+			 EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW,
+			 EdwardScissorliftBotConfiguration.LIFT_POSITION_MIDDLE,
+			 EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH
 	   };
 	   liftUpDebouncer = new DefenderDebouncer(500, () -> {
 		  if (currentLiftPositionIndex < (liftPositions.length - 1)) {

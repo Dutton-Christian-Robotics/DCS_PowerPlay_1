@@ -20,7 +20,7 @@ public class DefenderBot {
     public Telemetry telemetry;
 
 
-    public DefenderBot(HardwareMap hm, Class<?> configClass, Telemetry t) {
+    public DefenderBot(HardwareMap hm, Class<? extends DefenderBotConfiguration> configClass, Telemetry t) {
 	   hardwareMap = hm;
 
 	   try {
@@ -33,8 +33,6 @@ public class DefenderBot {
 
 	   // In subclassess, use addSystem with the system class.
 	   // This will automatically pass along hardwaremap properties, and the bot instance
-
-
     }
 
     // the DefenderBot, by itself, cannot do any driving. This method is intended as a "pass through"
@@ -92,26 +90,6 @@ public class DefenderBot {
 	   } catch (Exception e) {
 		  //something should happen here
 	   }
-    }
-
-    public double getConfigDouble(String key) {
-	   return this.configuration.getDouble(key);
-    }
-
-    public int getConfigInt(String key) {
-	   return this.configuration.getInt(key);
-    }
-
-    public long getConfigLong(String key) {
-	   return this.configuration.getLong(key);
-    }
-
-    public String getConfigString(String key) {
-	   return this.configuration.getString(key);
-    }
-
-    public Pose2d configPose2d(String key) {
-	   return (Pose2d) this.configuration.get(key);
     }
 
 }

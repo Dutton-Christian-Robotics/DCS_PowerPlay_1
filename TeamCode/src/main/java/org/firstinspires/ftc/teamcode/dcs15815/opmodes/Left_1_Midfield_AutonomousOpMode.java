@@ -48,7 +48,7 @@ public class Left_1_Midfield_AutonomousOpMode extends LinearOpMode {
 		  sleep(20);
 	   }
 
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(1500);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW); sleep(1500);
 
 	   Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
 			 .forward(55)
@@ -64,11 +64,11 @@ public class Left_1_Midfield_AutonomousOpMode extends LinearOpMode {
 
 	   bot.navigation.followTrajectory(traj1);
 	   bot.navigation.turn(Math.toRadians(-45));
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1000);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH); sleep(1000);
 	   bot.navigation.followTrajectory(traj2);
 	   bot.claw.open(); sleep(2000);
 	   bot.navigation.followTrajectory(traj3);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(2000);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND); sleep(2000);
 	   bot.navigation.turn(Math.toRadians(-45));
 
 

@@ -54,7 +54,7 @@ public class Left_2a_AutonomousOpMode extends LinearOpMode {
 		  sleep(20);
 	   }
 
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(1000);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW); sleep(1000);
 
 	   // Drive forward
 	   Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
@@ -94,22 +94,22 @@ public class Left_2a_AutonomousOpMode extends LinearOpMode {
 
 	   bot.navigation.followTrajectory(traj1);
 	   bot.navigation.turn(Math.toRadians(-45));
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1000);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH); sleep(1000);
 	   bot.navigation.followTrajectory(traj2);
 	   bot.claw.open(); sleep(1500);
 	   bot.navigation.followTrajectory(traj3);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_STACKTOP")); sleep(1000);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_STACKTOP); sleep(1000);
 	   bot.navigation.turn(Math.toRadians(135));
 	   bot.navigation.followTrajectory(traj4);
 	   bot.claw.close(); sleep(1000);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(1500);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW); sleep(1500);
 	   bot.navigation.followTrajectory(traj5);
 	   bot.navigation.turn(Math.toRadians(-135));
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1000);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH); sleep(1000);
 	   bot.navigation.followTrajectory(traj6);
 	   bot.claw.open(); sleep(1000);
 	   bot.navigation.followTrajectory(traj7);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(1250);
+	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND); sleep(1250);
 	   bot.navigation.turn(Math.toRadians(-45));
 
 

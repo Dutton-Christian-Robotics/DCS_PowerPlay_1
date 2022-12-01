@@ -39,11 +39,11 @@ public class Left_2b_AutonomousOpMode extends LinearOpMode {
     double CLOCKWISE_135 = Math.toRadians(-135);
     double COUNTER_CLOCKWISE_135 = Math.toRadians(135);
 
-    int LIFT_POSITION_HIGH = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_HIGH;
-    int LIFT_POSITION_BELOW_HIGH = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_BELOW_HIGH;
-    int LIFT_POSITION_STACKTOP = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_STACKTOP;
-    int LIFT_POSITION_LOW = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_LOW;
-    int LIFT_POSITION_GROUND = EdwardScissorliftBotConfiguration.S_LIFT_POSITION_GROUND;
+    int LIFT_POSITION_HIGH = EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH;
+    int LIFT_POSITION_BELOW_HIGH = EdwardScissorliftBotConfiguration.LIFT_POSITION_BELOW_HIGH;
+    int LIFT_POSITION_STACKTOP = EdwardScissorliftBotConfiguration.LIFT_POSITION_STACKTOP;
+    int LIFT_POSITION_LOW = EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW;
+    int LIFT_POSITION_GROUND = EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND;
 
 
     @Override

@@ -37,43 +37,4 @@ abstract public class DefenderBotSystem {
 	   bot.sleep(milliseconds);
     }
 
-    // This version of sleep can be called with a configuration key
-    public void sleep(String configKey) { sleep(configLong(configKey)); }
-
-    public String configString(String key) {
-	   return configuration.getString(key);
-    }
-
-    public double configDouble(String key) {
-	   return configuration.getDouble(key);
-    }
-
-
-    public int configInt(String key) {
-	   return configuration.getInt(key);
-    }
-
-    public long configLong(String key) {
-	   return configuration.getLong(key);
-    }
-
-    public Servo.Direction configServoDirection(String key) {
-	   return (Servo.Direction) configuration.get(key);
-    }
-
-    public DcMotorSimple.Direction configMotorDirection(String key) {
-	   return (DcMotorSimple.Direction) configuration.get(key);
-    }
-
-    public AxesOrder configAxesOrder(String key) {
-	   return (AxesOrder) configuration.get(key);
-    }
-
-    public DefenderBotPosition configDefenderBotPosition(String key) {
-	   return (DefenderBotPosition) configuration.get(key);
-    }
-
-    public Pose2d configPose2d(String key) {
-	   return (Pose2d) configuration.get(key);
-    }
 }
