@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderDebouncer;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 
 @TeleOp(name = "One Gamepad Driving Test", group = "Testing")
 public class OneGamepadDrivingTestOpMode extends LinearOpMode
@@ -17,7 +17,7 @@ public class OneGamepadDrivingTestOpMode extends LinearOpMode
 
     @Override
     public void runOpMode() {
-	   bot = new EdwardScissorliftBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   liftPositions = new int[]{
 		  bot.configuration.getInt("LIFT_POSITION_GROUND"),

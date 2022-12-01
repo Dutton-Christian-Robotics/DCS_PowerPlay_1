@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 /*
  Alliance Color: either
  Starting Position: touching wall, contained within tile F5 (red) or A2 (blue); camera pointed at signal
@@ -28,7 +28,7 @@ public class Right_1_Near_AutonomousOpMode extends LinearOpMode {
 	   telemetry.addData("Bot", "initializing...");
 	   telemetry.update();
 
-	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 //	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
 	   Pose2d startingPose = new Pose2d();
@@ -47,7 +47,7 @@ public class Right_1_Near_AutonomousOpMode extends LinearOpMode {
 		  sleep(20);
 	   }
 
-	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW); sleep(1500);
+	   bot.lift.setPosition( ESBConfiguration.LIFT_POSITION_LOW); sleep(1500);
 
 	   Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
 			 .forward(30)
@@ -78,12 +78,12 @@ public class Right_1_Near_AutonomousOpMode extends LinearOpMode {
 	   bot.navigation.followTrajectory(traj1);
 	   bot.navigation.turn(Math.toRadians(90));
 	   bot.navigation.followTrajectory(traj2);
-	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH); sleep(1250);
+	   bot.lift.setPosition( ESBConfiguration.LIFT_POSITION_HIGH); sleep(1250);
 	   bot.navigation.turn(Math.toRadians(-45));
 	   bot.navigation.followTrajectory(traj3);
 	   bot.claw.open(); sleep(2000);
 	   bot.navigation.followTrajectory(traj4);
-	   bot.lift.setPosition( EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND); sleep(2000);
+	   bot.lift.setPosition( ESBConfiguration.LIFT_POSITION_GROUND); sleep(2000);
 
 
 	   if (foundTagId < 1) {

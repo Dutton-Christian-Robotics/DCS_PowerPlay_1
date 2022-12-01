@@ -6,9 +6,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 
-import java.lang.reflect.Field;
-
-public class EdwardScissorliftBotConfiguration extends DefenderBotConfiguration {
+public class ESBConfiguration extends DefenderBotConfiguration {
 
     public static String DRIVETRAIN_BACKLEFT_MOTOR_NAME = "back_left_motor";
     public static String DRIVETRAIN_FRONTLEFT_MOTOR_NAME = "front_left_motor";
@@ -80,7 +78,7 @@ public class EdwardScissorliftBotConfiguration extends DefenderBotConfiguration 
     public static String CAMERA_NAME = "Webcam 1";
     public static double VISION_THRESHOLD_DETECTION = 18;
 
-    public EdwardScissorliftBotConfiguration() {
+    public ESBConfiguration() {
 	   super();
     }
 

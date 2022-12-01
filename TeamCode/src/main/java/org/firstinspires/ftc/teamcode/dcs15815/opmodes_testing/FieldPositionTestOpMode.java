@@ -8,7 +8,7 @@ import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 
 @Disabled
 @TeleOp(name = "Field Position Test", group = "Testing")
@@ -20,7 +20,7 @@ public class FieldPositionTestOpMode extends LinearOpMode
     @Override
     public void runOpMode() {
 
-	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   waitForStart();
 

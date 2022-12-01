@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 /*
  Alliance Color: red
  Starting Position: touching wall, contained within tile F2; camera pointed at signal
@@ -28,7 +28,7 @@ public class Red_Left_1_AutonomousOpMode extends LinearOpMode {
 	   telemetry.addData("Bot", "initializing...");
 	   telemetry.update();
 
-	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
 

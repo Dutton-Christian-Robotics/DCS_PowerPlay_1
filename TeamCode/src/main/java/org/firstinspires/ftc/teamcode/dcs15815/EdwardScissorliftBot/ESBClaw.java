@@ -4,17 +4,16 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 
-public class EdwardScissorliftBotClaw extends DefenderBotSystem {
+public class ESBClaw extends DefenderBotSystem {
 
     private Servo clawServo;
 
-    public EdwardScissorliftBotClaw(HardwareMap hm, DefenderBot b) {
+    public ESBClaw(HardwareMap hm, DefenderBot b) {
 	   super(hm, b);
 
-	   clawServo = hm.servo.get(EdwardScissorliftBotConfiguration.CLAW_SERVO_NAME);
+	   clawServo = hm.servo.get(ESBConfiguration.CLAW_SERVO_NAME);
     }
 
 // ----------------------------------------
@@ -27,11 +26,11 @@ public class EdwardScissorliftBotClaw extends DefenderBotSystem {
 
 
     public void open() {
-	   setClawPosition(EdwardScissorliftBotConfiguration.CLAW_POSITION_OPEN);
+	   setClawPosition(ESBConfiguration.CLAW_POSITION_OPEN);
     }
 
     public void close() {
-	   setClawPosition(EdwardScissorliftBotConfiguration.CLAW_POSITION_CLOSED);
+	   setClawPosition(ESBConfiguration.CLAW_POSITION_CLOSED);
 
     }
 

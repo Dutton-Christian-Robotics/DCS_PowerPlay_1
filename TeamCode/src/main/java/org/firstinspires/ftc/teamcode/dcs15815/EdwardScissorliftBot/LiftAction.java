@@ -17,31 +17,31 @@ public class LiftAction extends DefenderAction {
     }
 
     public static LiftAction gotoGround() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_GROUND);
     }
 
     public static LiftAction gotoStackTop() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_STACKTOP);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_STACKTOP);
     }
 
     public static LiftAction gotoLow() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_LOW);
     }
 
     public static LiftAction gotoMiddle() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_MIDDLE);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_MIDDLE);
     }
 
     public static LiftAction gotoBelowHigh() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_BELOW_HIGH);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_BELOW_HIGH);
     }
 
     public static LiftAction gotoHigh() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_HIGH);
     }
 
     public static LiftAction gotoMax() {
-	   return new LiftAction(EdwardScissorliftBotConfiguration.LIFT_POSITION_MAX);
+	   return new LiftAction(ESBConfiguration.LIFT_POSITION_MAX);
     }
 
     public LiftAction thenWait(int m) {

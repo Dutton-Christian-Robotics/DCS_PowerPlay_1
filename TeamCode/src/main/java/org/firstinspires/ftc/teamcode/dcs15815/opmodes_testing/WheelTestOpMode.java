@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 
 @Disabled
 @TeleOp(name = "Wheel Test", group = "Testing")
@@ -15,7 +15,7 @@ public class WheelTestOpMode extends LinearOpMode
 
     @Override
     public void runOpMode() {
-	   bot = new EdwardScissorliftBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   waitForStart();
 

@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 /*
  NOTE: this is the opmode as it was after Fruitport, with:
   1) reorganization of whitespace
@@ -39,11 +39,11 @@ public class Left_2b_AutonomousOpMode extends LinearOpMode {
     double CLOCKWISE_135 = Math.toRadians(-135);
     double COUNTER_CLOCKWISE_135 = Math.toRadians(135);
 
-    int LIFT_POSITION_HIGH = EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH;
-    int LIFT_POSITION_BELOW_HIGH = EdwardScissorliftBotConfiguration.LIFT_POSITION_BELOW_HIGH;
-    int LIFT_POSITION_STACKTOP = EdwardScissorliftBotConfiguration.LIFT_POSITION_STACKTOP;
-    int LIFT_POSITION_LOW = EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW;
-    int LIFT_POSITION_GROUND = EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND;
+    int LIFT_POSITION_HIGH = ESBConfiguration.LIFT_POSITION_HIGH;
+    int LIFT_POSITION_BELOW_HIGH = ESBConfiguration.LIFT_POSITION_BELOW_HIGH;
+    int LIFT_POSITION_STACKTOP = ESBConfiguration.LIFT_POSITION_STACKTOP;
+    int LIFT_POSITION_LOW = ESBConfiguration.LIFT_POSITION_LOW;
+    int LIFT_POSITION_GROUND = ESBConfiguration.LIFT_POSITION_GROUND;
 
 
     @Override
@@ -51,7 +51,7 @@ public class Left_2b_AutonomousOpMode extends LinearOpMode {
 	   telemetry.addData("Position", "Left");
 	   telemetry.addData("Bot", "initializing...");
 
-	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   telemetry.addData("claw", bot.claw != null);
 	   telemetry.update();

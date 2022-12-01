@@ -1,8 +1,6 @@
 package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 
-import com.acmerobotics.roadrunner.drive.Drive;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
@@ -10,7 +8,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderActions
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ClawAction;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.DriveAction;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.LiftAction;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.SwitchAction;
 /*
@@ -45,7 +43,7 @@ public class Left_2c_AutonomousOpMode extends LinearOpMode {
 	   telemetry.addData("Bot", "initializing...");
 	   telemetry.update();
 
-	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 //	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
 	   Pose2d startingPose = new Pose2d();

@@ -6,16 +6,15 @@ import com.acmerobotics.roadrunner.trajectory.TrajectoryBuilder;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
 // TODO: after tuning, take guts of SampleMecanumDrive and make them the internals here
-public class EdwardScissorliftBotRoadRunnerNavigation extends DefenderBotSystem {
+public class ESBRoadRunnerNavigation extends DefenderBotSystem {
 
     public SampleMecanumDrive roadrunner;
 
-    public EdwardScissorliftBotRoadRunnerNavigation(HardwareMap hm, DefenderBot b) {
+    public ESBRoadRunnerNavigation(HardwareMap hm, DefenderBot b) {
 	   super(hm, b);
 
 	   roadrunner = new SampleMecanumDrive(hm);

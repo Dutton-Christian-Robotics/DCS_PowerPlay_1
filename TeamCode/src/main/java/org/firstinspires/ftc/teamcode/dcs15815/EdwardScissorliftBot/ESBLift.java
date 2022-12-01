@@ -4,27 +4,26 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderPIDController;
 
-public class EdwardScissorliftBotLift extends DefenderBotSystem {
+public class ESBLift extends DefenderBotSystem {
 
     public DcMotorEx leftMotor, rightMotor;
     private DefenderPIDController pidController;
 
-    public EdwardScissorliftBotLift(HardwareMap hm, DefenderBot b) {
+    public ESBLift(HardwareMap hm, DefenderBot b) {
 	   super(hm, b);
 	   pidController = new DefenderPIDController(
-			 EdwardScissorliftBotConfiguration.LIFT_MOTOR_KP,
-			 EdwardScissorliftBotConfiguration.LIFT_MOTOR_KI,
-			 EdwardScissorliftBotConfiguration.LIFT_MOTOR_KD
+			 ESBConfiguration.LIFT_MOTOR_KP,
+			 ESBConfiguration.LIFT_MOTOR_KI,
+			 ESBConfiguration.LIFT_MOTOR_KD
 	   );
 
-	   leftMotor = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.LIFT_LEFT_MOTOR_NAME);
-	   rightMotor = hm.get(DcMotorEx.class, EdwardScissorliftBotConfiguration.LIFT_RIGHT_MOTOR_NAME);
-	   leftMotor.setDirection(EdwardScissorliftBotConfiguration.LIFT_LEFT_MOTOR_DIRECTION);
-	   rightMotor.setDirection(EdwardScissorliftBotConfiguration.LIFT_RIGHT_MOTOR_DIRECTION);
+	   leftMotor = hm.get(DcMotorEx.class, ESBConfiguration.LIFT_LEFT_MOTOR_NAME);
+	   rightMotor = hm.get(DcMotorEx.class, ESBConfiguration.LIFT_RIGHT_MOTOR_NAME);
+	   leftMotor.setDirection(ESBConfiguration.LIFT_LEFT_MOTOR_DIRECTION);
+	   rightMotor.setDirection(ESBConfiguration.LIFT_RIGHT_MOTOR_DIRECTION);
 
 	   leftMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
 	   rightMotor.setZeroPowerBehavior(DcMotorEx.ZeroPowerBehavior.BRAKE);
@@ -43,8 +42,8 @@ public class EdwardScissorliftBotLift extends DefenderBotSystem {
 	   rightMotor.setMode(DcMotorEx.RunMode.RUN_TO_POSITION);
 	   leftMotor.setTargetPosition(p);
 	   rightMotor.setTargetPosition(p);
-	   leftMotor.setPower(EdwardScissorliftBotConfiguration.LIFT_POWER_MAX);
-	   rightMotor.setPower(EdwardScissorliftBotConfiguration.LIFT_POWER_MAX);
+	   leftMotor.setPower(ESBConfiguration.LIFT_POWER_MAX);
+	   rightMotor.setPower(ESBConfiguration.LIFT_POWER_MAX);
     }
 
     public void gotoPosition(int p) {

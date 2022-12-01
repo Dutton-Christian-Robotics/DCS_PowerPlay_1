@@ -7,11 +7,10 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 
 
-public class EdwardScissorliftBotSensors extends DefenderBotSystem {
+public class ESBSensors extends DefenderBotSystem {
 
     private BNO055IMU imu;
     private double lastAngle = 0;
@@ -19,7 +18,7 @@ public class EdwardScissorliftBotSensors extends DefenderBotSystem {
     private double integratedHeading = 0;
 
 
-    public EdwardScissorliftBotSensors(HardwareMap hm, DefenderBot b) {
+    public ESBSensors(HardwareMap hm, DefenderBot b) {
 	   super(hm, b);
 	   imu = hm.get(BNO055IMU.class, "imu");
 	   BNO055IMU.Parameters params = new BNO055IMU.Parameters();

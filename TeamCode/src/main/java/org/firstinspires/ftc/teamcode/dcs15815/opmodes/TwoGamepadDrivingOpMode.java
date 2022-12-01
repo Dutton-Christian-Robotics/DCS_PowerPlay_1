@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderAnalogModifier;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderDebouncer;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBot;
-import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftBotConfiguration;
+import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 
 @TeleOp(name = "Two Gamepad Driving", group = "Competition")
 public class TwoGamepadDrivingOpMode extends LinearOpMode
@@ -20,18 +20,18 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 
     @Override
     public void runOpMode() {
-	   bot = new EdwardScissorliftBot(hardwareMap, EdwardScissorliftBotConfiguration.class, telemetry);
+	   bot = new EdwardScissorliftBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   gamepad2RightStickModifier = new DefenderAnalogModifier(
-			 EdwardScissorliftBotConfiguration.GAMEPAD2_RIGHT_STICK_CURVE,
-			 EdwardScissorliftBotConfiguration.GAMEPAD2_RIGHT_STICK_MAX
+			 ESBConfiguration.GAMEPAD2_RIGHT_STICK_CURVE,
+			 ESBConfiguration.GAMEPAD2_RIGHT_STICK_MAX
 	   );
 
 	   liftPositions = new int[]{
-			 EdwardScissorliftBotConfiguration.LIFT_POSITION_GROUND,
-			 EdwardScissorliftBotConfiguration.LIFT_POSITION_LOW,
-			 EdwardScissorliftBotConfiguration.LIFT_POSITION_MIDDLE,
-			 EdwardScissorliftBotConfiguration.LIFT_POSITION_HIGH
+			 ESBConfiguration.LIFT_POSITION_GROUND,
+			 ESBConfiguration.LIFT_POSITION_LOW,
+			 ESBConfiguration.LIFT_POSITION_MIDDLE,
+			 ESBConfiguration.LIFT_POSITION_HIGH
 	   };
 	   liftUpDebouncer = new DefenderDebouncer(500, () -> {
 		  if (currentLiftPositionIndex < (liftPositions.length - 1)) {

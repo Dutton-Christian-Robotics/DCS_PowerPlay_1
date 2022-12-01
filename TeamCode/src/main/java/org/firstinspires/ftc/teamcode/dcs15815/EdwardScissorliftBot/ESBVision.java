@@ -3,7 +3,6 @@ package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.WebcamName;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
-import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBotSystem;
 
 import org.openftc.apriltag.AprilTagDetection;
@@ -15,7 +14,7 @@ import org.openftc.easyopencv.OpenCvWebcam;
 import java.util.ArrayList;
 
 
-public class EdwardScissorliftBotVision extends DefenderBotSystem {
+public class ESBVision extends DefenderBotSystem {
     OpenCvWebcam webcam;
     AprilTagDetectionPipeline pipeline;
     private int _foundTagId = -1;
@@ -36,10 +35,10 @@ public class EdwardScissorliftBotVision extends DefenderBotSystem {
 
     AprilTagDetection tagOfInterest = null;
 
-    public EdwardScissorliftBotVision(HardwareMap hm, DefenderBot b) {
+    public ESBVision(HardwareMap hm, DefenderBot b) {
 	   super(hm, b);
 	   int cameraMonitorViewId = hm.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hm.appContext.getPackageName());
-	   webcam = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, EdwardScissorliftBotConfiguration.CAMERA_NAME), cameraMonitorViewId);
+	   webcam = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, ESBConfiguration.CAMERA_NAME), cameraMonitorViewId);
 	   pipeline = new AprilTagDetectionPipeline(tagsize, fx, fy, cx, cy);
 	   webcam.setPipeline(pipeline);
 	   webcam.setMillisecondsPermissionTimeout(2500); // Timeout for obtaining permission is configurable. Set before opening.
