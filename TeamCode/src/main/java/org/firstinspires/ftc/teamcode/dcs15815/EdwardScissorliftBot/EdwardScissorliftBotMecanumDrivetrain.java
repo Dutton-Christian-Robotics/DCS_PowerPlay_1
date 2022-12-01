@@ -14,7 +14,7 @@ public class EdwardScissorliftBotMecanumDrivetrain extends DefenderBotDrivetrain
     public DcMotorEx backLeft, frontLeft, frontRight, backRight;
 
 
-    EdwardScissorliftBotMecanumDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public EdwardScissorliftBotMecanumDrivetrain(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   backLeft = hm.get(DcMotorEx.class, configString("DRIVETRAIN_BACKLEFT_MOTOR_NAME"));

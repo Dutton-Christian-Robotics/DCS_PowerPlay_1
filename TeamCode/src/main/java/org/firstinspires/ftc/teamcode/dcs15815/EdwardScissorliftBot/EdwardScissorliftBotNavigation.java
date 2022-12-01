@@ -27,7 +27,7 @@ public class EdwardScissorliftBotNavigation extends DefenderBotSystem {
     private EdwardScissorliftBotSensors sensors;
     private EdwardScissorliftBotMecanumDrivetrain drivetrain;
 
-    EdwardScissorliftBotNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public EdwardScissorliftBotNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   float[] data = {1.0f, 1.0f, 1.0f,

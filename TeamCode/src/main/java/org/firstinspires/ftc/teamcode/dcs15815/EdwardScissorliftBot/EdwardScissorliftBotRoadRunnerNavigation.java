@@ -15,7 +15,7 @@ public class EdwardScissorliftBotRoadRunnerNavigation extends DefenderBotSystem 
 
     public SampleMecanumDrive roadrunner;
 
-    EdwardScissorliftBotRoadRunnerNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public EdwardScissorliftBotRoadRunnerNavigation(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   roadrunner = new SampleMecanumDrive(hm);

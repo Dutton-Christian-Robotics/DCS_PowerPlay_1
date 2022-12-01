@@ -36,7 +36,7 @@ public class EdwardScissorliftBotVision extends DefenderBotSystem {
 
     AprilTagDetection tagOfInterest = null;
 
-    EdwardScissorliftBotVision(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public EdwardScissorliftBotVision(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 	   int cameraMonitorViewId = hm.appContext.getResources().getIdentifier("cameraMonitorViewId", "id", hm.appContext.getPackageName());
 	   webcam = OpenCvCameraFactory.getInstance().createWebcam(hm.get(WebcamName.class, configString("CAMERA_NAME")), cameraMonitorViewId);

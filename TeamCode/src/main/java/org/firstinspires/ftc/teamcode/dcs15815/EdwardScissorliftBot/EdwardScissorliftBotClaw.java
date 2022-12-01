@@ -11,7 +11,7 @@ public class EdwardScissorliftBotClaw extends DefenderBotSystem {
 
     private Servo clawServo;
 
-    EdwardScissorliftBotClaw(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public EdwardScissorliftBotClaw(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 
 	   clawServo = hm.servo.get(configString("CLAW_SERVO_NAME"));

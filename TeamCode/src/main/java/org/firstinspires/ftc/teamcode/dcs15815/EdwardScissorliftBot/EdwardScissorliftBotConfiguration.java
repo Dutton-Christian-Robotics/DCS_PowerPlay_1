@@ -59,7 +59,7 @@ public class EdwardScissorliftBotConfiguration extends DefenderBotConfiguration 
     public String CAMERA_NAME = "Webcam 1";
     public double VISION_THRESHOLD_DETECTION = 18;
 
-    EdwardScissorliftBotConfiguration() {
+    public EdwardScissorliftBotConfiguration() {
 	   super();
 	   DRIVETRAIN_BACKLEFT_MOTOR_NAME = "back_left_motor";
 	   DRIVETRAIN_FRONTLEFT_MOTOR_NAME = "front_left_motor";

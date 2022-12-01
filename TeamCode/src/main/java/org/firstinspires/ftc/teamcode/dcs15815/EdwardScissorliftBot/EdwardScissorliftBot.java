@@ -1,8 +1,8 @@
 package org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot;
 
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.robotcore.external.Telemetry;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderBot.DefenderBot;
 
 public class EdwardScissorliftBot extends DefenderBot {

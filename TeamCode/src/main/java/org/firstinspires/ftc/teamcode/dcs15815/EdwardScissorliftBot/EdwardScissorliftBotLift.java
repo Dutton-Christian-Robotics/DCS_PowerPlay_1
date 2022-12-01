@@ -13,7 +13,7 @@ public class EdwardScissorliftBotLift extends DefenderBotSystem {
     public DcMotorEx leftMotor, rightMotor;
     private DefenderPIDController pidController;
 
-    EdwardScissorliftBotLift(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
+    public EdwardScissorliftBotLift(HardwareMap hm, DefenderBotConfiguration config, DefenderBot b) {
 	   super(hm, config, b);
 	   pidController = new DefenderPIDController(
 			 configDouble("LIFT_MOTOR_KP"),
