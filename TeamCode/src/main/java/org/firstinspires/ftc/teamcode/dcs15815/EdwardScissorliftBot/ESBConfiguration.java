@@ -41,13 +41,20 @@ public class ESBConfiguration extends DefenderBotConfiguration {
     public static double GAMEPAD2_RIGHT_STICK_CURVE = 2;
     public static double GAMEPAD2_RIGHT_STICK_MAX = 1;
 
+    public static double GAMEPAD1_LEFT_STICK_Y_CURVE = 2.5;
+    public static double GAMEPAD1_LEFT_STICK_Y_MAX = 1;
+
+    public static double GAMEPAD1_LEFT_STICK_X_CURVE = 2;
+    public static double GAMEPAD1_LEFT_STICK_X_MAX = 1;
+
+
     public static String CLAW_SERVO_NAME = "claw";
     // We've changed these several times as we've swapped claws whose
     // servo positions were reversed
     //	   CLAW_POSITION_OPEN = 0.15; // original metal claw
     //	   CLAW_POSITION_OPEN = 0; // original metal claw
 
-    public static double CLAW_POSITION_OPEN = 0.7;
+    public static double CLAW_POSITION_OPEN = 0.35;
     public static double CLAW_POSITION_CLOSED = 0.15;
 
     public static String IMU_SENSOR_NAME = "imu";
