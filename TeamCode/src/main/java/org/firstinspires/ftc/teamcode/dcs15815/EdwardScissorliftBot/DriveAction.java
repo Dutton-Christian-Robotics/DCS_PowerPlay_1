@@ -8,7 +8,6 @@ import com.acmerobotics.roadrunner.trajectory.TrajectoryBuilder;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderActions.DefenderAction;
 
 public class DriveAction extends DefenderAction {
-    EdwardScissorliftAutonomousBot bot = (EdwardScissorliftAutonomousBot)actionSequence.bot;
     public Trajectory trajectory;
     public double postTrajectoryAngle;
     public double distance = 0;
@@ -25,7 +24,7 @@ public class DriveAction extends DefenderAction {
     public static double COUNTER_CLOCKWISE_135 = Math.toRadians(135);
 
     public DriveAction() {
-	   startingPose = actionSequence.currentPose;
+
     }
 
     public static DriveAction forward(double i) {
@@ -71,6 +70,8 @@ public class DriveAction extends DefenderAction {
 
     @Override
     public void run() {
+	   EdwardScissorliftAutonomousBot bot = (EdwardScissorliftAutonomousBot)actionSequence.bot;
+	   startingPose = actionSequence.currentPose;
 	   if (distance > 0) {
 		  TrajectoryBuilder tb = bot.navigation.trajectoryBuilder(startingPose);
 		  if (isForward) {
