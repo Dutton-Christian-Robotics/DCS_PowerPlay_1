@@ -47,7 +47,7 @@ public class ESBConfiguration extends DefenderBotConfiguration {
     //	   CLAW_POSITION_OPEN = 0.15; // original metal claw
     //	   CLAW_POSITION_OPEN = 0; // original metal claw
 
-    public static double CLAW_POSITION_OPEN = 0.8;
+    public static double CLAW_POSITION_OPEN = 0.7;
     public static double CLAW_POSITION_CLOSED = 0.15;
 
     public static String IMU_SENSOR_NAME = "imu";
