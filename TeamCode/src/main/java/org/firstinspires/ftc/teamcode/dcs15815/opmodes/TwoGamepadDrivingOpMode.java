@@ -13,7 +13,7 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 {
     EdwardScissorliftBot bot;
     private DefenderDebouncer liftUpDebouncer, liftDownDebouncer, liftGroundDebouncer, clawDebouncer;
-    private DefenderAnalogModifier gamepad2RightStickModifier;
+    private DefenderAnalogModifier gamepad2RightStickModifier, gamepad1LeftStickYModifier, gamepad1LeftStickXModifier;
     int currentLiftPositionIndex = 0;
     int[] liftPositions;
     boolean isClawOpen;
@@ -21,6 +21,15 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
     @Override
     public void runOpMode() {
 	   bot = new EdwardScissorliftBot(hardwareMap, ESBConfiguration.class, telemetry);
+
+	   gamepad1LeftStickYModifier = new DefenderAnalogModifier(
+			 ESBConfiguration.GAMEPAD1_LEFT_STICK_Y_CURVE,
+			 ESBConfiguration.GAMEPAD1_LEFT_STICK_Y_MAX
+	   );
+	   gamepad1LeftStickXModifier = new DefenderAnalogModifier(
+			 ESBConfiguration.GAMEPAD1_LEFT_STICK_X_CURVE,
+			 ESBConfiguration.GAMEPAD1_LEFT_STICK_X_MAX
+	   );
 
 	   gamepad2RightStickModifier = new DefenderAnalogModifier(
 			 ESBConfiguration.GAMEPAD2_RIGHT_STICK_CURVE,
@@ -66,7 +75,7 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 	   while (opModeIsActive()) {
 //		  telemetry.addData("lift-left", bot.lift.leftMotor.getCurrentPosition());
 //		  telemetry.addData("lift-right", bot.lift.rightMotor.getCurrentPosition());
-		  bot.drivetrain.drive(-1 * gamepad1.left_stick_y, (gamepad1.right_trigger - gamepad1.left_trigger), gamepad1.left_stick_x);
+		  bot.drivetrain.drive(gamepad1LeftStickYModifier.modify(-1 * gamepad1.left_stick_y), (gamepad1.right_trigger - gamepad1.left_trigger), gamepad1LeftStickXModifier.modify(gamepad1.left_stick_x));
 
 		  if (gamepad2.right_stick_y > 0) {
 			 bot.lift.setPower(gamepad2RightStickModifier.modify(-1 * gamepad2.right_stick_y));
