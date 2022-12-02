@@ -20,10 +20,10 @@ public class OneGamepadDrivingTestOpMode extends LinearOpMode
 	   bot = new EdwardScissorliftBot(hardwareMap, ESBConfiguration.class, telemetry);
 
 	   liftPositions = new int[]{
-		  bot.configuration.getInt("LIFT_POSITION_GROUND"),
-		  bot.configuration.getInt("LIFT_POSITION_LOW"),
-		  bot.configuration.getInt("LIFT_POSITION_MIDDLE"),
-		  bot.configuration.getInt("LIFT_POSITION_HIGH")
+			 ESBConfiguration.LIFT_POSITION_GROUND,
+			 ESBConfiguration.LIFT_POSITION_LOW,
+			 ESBConfiguration.LIFT_POSITION_MIDDLE,
+			 ESBConfiguration.LIFT_POSITION_HIGH
 	   };
 	   liftUpDebouncer = new DefenderDebouncer(500, () -> {
 		  if (currentLiftPositionIndex < (liftPositions.length - 1)) {

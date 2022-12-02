@@ -30,7 +30,7 @@ public class Red_Right_1_AutonomousOpMode extends LinearOpMode {
 
 	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
-	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_RIGHT");
+	   Pose2d startingPose = ESBConfiguration.NAVIGATION_START_RED_RIGHT;
 
 	   bot.claw.close();
 
@@ -46,7 +46,7 @@ public class Red_Right_1_AutonomousOpMode extends LinearOpMode {
 		  sleep(20);
 	   }
 
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_LOW")); sleep(1500);
+	   bot.lift.setPosition( ESBConfiguration.LIFT_POSITION_LOW); sleep(1500);
 
 	   Trajectory traj1 = bot.navigation.trajectoryBuilder(startingPose)
 			 .forward(30)
@@ -77,12 +77,12 @@ public class Red_Right_1_AutonomousOpMode extends LinearOpMode {
 	   bot.navigation.followTrajectory(traj1);
 	   bot.navigation.turn(Math.toRadians(90));
 	   bot.navigation.followTrajectory(traj2);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_HIGH")); sleep(1250);
+	   bot.lift.setPosition( ESBConfiguration.LIFT_POSITION_HIGH); sleep(1250);
 	   bot.navigation.turn(Math.toRadians(-90));
 	   bot.navigation.followTrajectory(traj3);
 	   bot.claw.open(); sleep(2000);
 	   bot.navigation.followTrajectory(traj4);
-	   bot.lift.setPosition( bot.getConfigInt("LIFT_POSITION_GROUND")); sleep(2000);
+	   bot.lift.setPosition( ESBConfiguration.LIFT_POSITION_GROUND); sleep(2000);
 	   bot.navigation.turn(Math.toRadians(-90));
 
 	   if (foundTagId < 1) {

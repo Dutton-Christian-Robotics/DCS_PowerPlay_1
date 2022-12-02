@@ -30,7 +30,7 @@ public class Red_Left_0_AutonomousOpMode extends LinearOpMode {
 
 	   bot = new EdwardScissorliftAutonomousBot(hardwareMap, ESBConfiguration.class, telemetry);
 
-	   Pose2d startingPose = bot.configPose2d("NAVIGATION_START_RED_LEFT");
+	   Pose2d startingPose = ESBConfiguration.NAVIGATION_START_RED_LEFT;
 
 	   while (!isStarted() && !isStopRequested()) {
 		  int mostRecentlyFoundTagId = bot.vision.searchForTags();
