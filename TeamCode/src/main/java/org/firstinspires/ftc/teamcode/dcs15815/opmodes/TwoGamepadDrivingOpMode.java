@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.sun.tools.javac.util.ArrayUtils;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderAnalogModifier;
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderUtilities.DefenderDebouncer;
@@ -17,6 +18,46 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
     int currentLiftPositionIndex = 0;
     int[] liftPositions;
     boolean isClawOpen;
+
+
+    public int[] reverse(int[] array) {
+	   int[] newArray = new int[array.length];
+
+	   for (int i = 0; i < array.length; i++) {
+		  newArray[array.length - 1 - i] = array[i];
+	   }
+
+	   return newArray;
+    }
+    public void gotoNextPosition() {
+	   int currentPosition = bot.lift.getPosition();
+	   int newPosition = -1;
+
+	   for (int i : liftPositions) {
+		  if (i > currentPosition) {
+			 newPosition = i;
+			 break;
+		  }
+	   }
+	   if (newPosition > -1) {
+		  bot.lift.setPosition(newPosition);
+	   }
+    }
+
+    public void gotoPreviousPosition() {
+	   int currentPosition = bot.lift.getPosition();
+	   int newPosition = -1;
+
+	   for (int i : reverse(liftPositions)) {
+		  if (i < currentPosition) {
+			 newPosition = i;
+			 break;
+		  }
+	   }
+	   if (newPosition > -1) {
+		  bot.lift.setPosition(newPosition);
+	   }
+    }
 
     @Override
     public void runOpMode() {
@@ -43,16 +84,18 @@ public class TwoGamepadDrivingOpMode extends LinearOpMode
 			 ESBConfiguration.LIFT_POSITION_HIGH
 	   };
 	   liftUpDebouncer = new DefenderDebouncer(500, () -> {
-		  if (currentLiftPositionIndex < (liftPositions.length - 1)) {
-			 currentLiftPositionIndex++;
-		  }
-		  bot.lift.setPosition(liftPositions[currentLiftPositionIndex]);
+		  gotoNextPosition();
+//		  if (currentLiftPositionIndex < (liftPositions.length - 1)) {
+//			 currentLiftPositionIndex++;
+//		  }
+//		  bot.lift.setPosition(liftPositions[currentLiftPositionIndex]);
 	   });
 	   liftDownDebouncer = new DefenderDebouncer(500, () -> {
-		  if (currentLiftPositionIndex > 0) {
-			 currentLiftPositionIndex--;
-		  }
-		  bot.lift.setPosition(liftPositions[currentLiftPositionIndex]);
+		  gotoPreviousPosition();
+//		  if (currentLiftPositionIndex > 0) {
+//			 currentLiftPositionIndex--;
+//		  }
+//		  bot.lift.setPosition(liftPositions[currentLiftPositionIndex]);
 	   });
 	   liftGroundDebouncer = new DefenderDebouncer(500, () -> {
 		  bot.lift.setPosition(0);
