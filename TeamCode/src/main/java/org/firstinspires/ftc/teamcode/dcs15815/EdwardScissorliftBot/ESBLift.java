@@ -46,6 +46,10 @@ public class ESBLift extends DefenderBotSystem {
 	   rightMotor.setPower(ESBConfiguration.LIFT_POWER_MAX);
     }
 
+    public int getPosition() {
+	   return leftMotor.getCurrentPosition();
+    }
+
     public void gotoPosition(int p) {
 	   int tolerance = 5;
 	   double power;
