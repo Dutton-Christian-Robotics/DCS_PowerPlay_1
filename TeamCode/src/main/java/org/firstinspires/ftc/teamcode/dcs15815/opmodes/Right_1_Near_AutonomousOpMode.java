@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
@@ -17,6 +18,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfigura
  	4) park within signal zone (no fallback for not sensing signal)
   */
 
+@Disabled
 @Autonomous(name = "Right 1: near junction", group = "Right")
 public class Right_1_Near_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;

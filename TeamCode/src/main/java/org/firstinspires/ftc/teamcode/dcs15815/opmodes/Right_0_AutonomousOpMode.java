@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
@@ -15,7 +16,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfigura
  	2) park within signal zone (or terminal if there's a detection failure)
  */
 
-
+@Disabled
 @Autonomous(name = "Right 0", group = "Right")
 public class Right_0_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;

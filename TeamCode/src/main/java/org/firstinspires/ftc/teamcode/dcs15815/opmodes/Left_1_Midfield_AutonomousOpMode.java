@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
@@ -18,6 +19,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfigura
  	5) turn towards alliance
  */
 
+@Disabled
 @Autonomous(name = "Left 1: midfield junction", group = "Left")
 public class Left_1_Midfield_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;
