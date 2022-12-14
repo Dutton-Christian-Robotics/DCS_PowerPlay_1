@@ -55,10 +55,10 @@ public class Left_2b4_AutonomousOpMode extends LinearOpMode {
 	   Pose2d startingPose = new Pose2d();
 
 	   Trajectory t1_initialForward = bot.navigation.trajectoryBuilder(startingPose)
-			 .forward(57)
+			 .forward(52)
 			 .build();
 	   Trajectory t2_approachHighJunction = bot.navigation.trajectoryBuilder(t1_initialForward.end().plus(new Pose2d(0, 0, CLOCKWISE_45)))
-			 .forward(7)
+			 .forward(5)
 			 .build();
 	   Trajectory t3_backAwayFromHighJunction = bot.navigation.trajectoryBuilder(t2_approachHighJunction.end())
 			 .back(7)
@@ -129,59 +129,59 @@ public class Left_2b4_AutonomousOpMode extends LinearOpMode {
 	   bot.lift.setPosition( LIFT_POSITION_HIGH); sleep(250);
 
 
-	   // back away from junction
-	   bot.navigation.followTrajectory(t3_backAwayFromHighJunction);
-	   bot.lift.setPosition( LIFT_POSITION_STACKTOP); //sleep(1000);
-	   bot.navigation.turn(COUNTER_CLOCKWISE_135);
-
-	   // drive toward stack after turn
-	   bot.navigation.followTrajectory(t4_approachStack);
-	   bot.claw.close(); sleep(250);
-	   bot.lift.setPosition( LIFT_POSITION_LOW);
-
-	    // drive away from stack
-	   bot.navigation.followTrajectory(t5_leaveStack);
-	   bot.navigation.turn(COUNTER_CLOCKWISE_90);
-
-	   bot.navigation.followTrajectory(t6_approachLowJunction);
-	   bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
-	   bot.claw.open();
-	   bot.lift.setPosition(LIFT_POSITION_LOW);
-
-	   bot.navigation.followTrajectory(t7_leaveLowJunction);
-	   bot.navigation.turn(CLOCKWISE_90);
-
-	   bot.lift.setPosition( LIFT_POSITION_STACKTOP);
-	   bot.navigation.followTrajectory(t8_approachStack);
-	   bot.claw.close(); sleep(250);
-	   bot.lift.setPosition( LIFT_POSITION_LOW);
-
-	   // drive away from stack
-	   bot.navigation.followTrajectory(t9_leaveStack);
-	   bot.navigation.turn(COUNTER_CLOCKWISE_90);
-
-	   bot.navigation.followTrajectory(t10_approachLowJunction);
-	   bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
-	   bot.claw.open();
-	   bot.lift.setPosition(LIFT_POSITION_LOW);
-
-	   bot.navigation.followTrajectory(t11_leaveLowJunction);
-	   bot.navigation.turn(CLOCKWISE_90);
-
-	   bot.lift.setPosition( LIFT_POSITION_STACKTOP); sleep(150);
-	   bot.navigation.followTrajectory(t12_approachStack);
-	   bot.claw.close(); sleep(250);
-	   bot.lift.setPosition( LIFT_POSITION_LOW);
-
-	   // drive away from stack
-	   bot.navigation.followTrajectory(t13_leaveStack);
-	   bot.navigation.turn(COUNTER_CLOCKWISE_90);
-
-	   bot.navigation.followTrajectory(t14_approachLowJunction);
-	   bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
-	   bot.claw.open();
-	   bot.lift.setPosition(LIFT_POSITION_LOW);
-
+//	   // back away from junction
+//	   bot.navigation.followTrajectory(t3_backAwayFromHighJunction);
+//	   bot.lift.setPosition( LIFT_POSITION_STACKTOP); //sleep(1000);
+//	   bot.navigation.turn(COUNTER_CLOCKWISE_135);
+//
+//	   // drive toward stack after turn
+//	   bot.navigation.followTrajectory(t4_approachStack);
+//	   bot.claw.close(); sleep(250);
+//	   bot.lift.setPosition( LIFT_POSITION_LOW);
+//
+//	    // drive away from stack
+//	   bot.navigation.followTrajectory(t5_leaveStack);
+//	   bot.navigation.turn(COUNTER_CLOCKWISE_90);
+//
+//	   bot.navigation.followTrajectory(t6_approachLowJunction);
+//	   bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
+//	   bot.claw.open();
+//	   bot.lift.setPosition(LIFT_POSITION_LOW);
+//
+//	   bot.navigation.followTrajectory(t7_leaveLowJunction);
+//	   bot.navigation.turn(CLOCKWISE_90);
+//
+//	   bot.lift.setPosition( LIFT_POSITION_STACKTOP);
+//	   bot.navigation.followTrajectory(t8_approachStack);
+//	   bot.claw.close(); sleep(250);
+//	   bot.lift.setPosition( LIFT_POSITION_LOW);
+//
+//	   // drive away from stack
+//	   bot.navigation.followTrajectory(t9_leaveStack);
+//	   bot.navigation.turn(COUNTER_CLOCKWISE_90);
+//
+//	   bot.navigation.followTrajectory(t10_approachLowJunction);
+//	   bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
+//	   bot.claw.open();
+//	   bot.lift.setPosition(LIFT_POSITION_LOW);
+//
+//	   bot.navigation.followTrajectory(t11_leaveLowJunction);
+//	   bot.navigation.turn(CLOCKWISE_90);
+//
+//	   bot.lift.setPosition( LIFT_POSITION_STACKTOP); sleep(150);
+//	   bot.navigation.followTrajectory(t12_approachStack);
+//	   bot.claw.close(); sleep(250);
+//	   bot.lift.setPosition( LIFT_POSITION_LOW);
+//
+//	   // drive away from stack
+//	   bot.navigation.followTrajectory(t13_leaveStack);
+//	   bot.navigation.turn(COUNTER_CLOCKWISE_90);
+//
+//	   bot.navigation.followTrajectory(t14_approachLowJunction);
+//	   bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
+//	   bot.claw.open();
+//	   bot.lift.setPosition(LIFT_POSITION_LOW);
+//
 
 
 //	   // drive toward junction

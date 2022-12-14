@@ -8,6 +8,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 /*
+
+	DOES NOT WORK WITH RETUNED ROADRUNNER
+
  NOTE: This is the opmode as it was at the end of Fruitport
 
  Alliance Color: either

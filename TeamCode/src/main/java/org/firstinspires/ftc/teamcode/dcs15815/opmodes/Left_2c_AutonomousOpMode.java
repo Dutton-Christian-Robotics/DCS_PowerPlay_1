@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderActions.DefenderActionSequence;
@@ -31,6 +32,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.SwitchAction
  	9) turn towards alliance
  */
 
+@Disabled
 @Autonomous(name = "Left 2c Autonomous", group = "Left")
 public class Left_2c_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;

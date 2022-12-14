@@ -18,7 +18,6 @@ ABANDONED? attempted spline and other compounbd methods to drive to high junctio
 
  */
 
-@Disabled
 @Autonomous(name = "Left 2b2 Autonomous", group = "Left")
 public class Left_2b2_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;
