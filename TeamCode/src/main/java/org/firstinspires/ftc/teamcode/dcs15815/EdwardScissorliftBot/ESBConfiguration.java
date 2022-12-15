@@ -31,7 +31,8 @@ public class ESBConfiguration extends DefenderBotConfiguration {
     public static int LIFT_POSITION_BELOW_HIGH = 1600;
     public static int LIFT_POSITION_MIDDLE = 1500;
     public static int LIFT_POSITION_LOW = 1100;
-    public static int LIFT_POSITION_STACKTOP = 600;
+    public static int LIFT_POSITION_STACKTOP = 680;
+    public static int LIFT_POSITION_STACK3 = 500;
     public static int LIFT_POSITION_GROUND = 0;
 
     public static double LIFT_MOTOR_KP = 0;
