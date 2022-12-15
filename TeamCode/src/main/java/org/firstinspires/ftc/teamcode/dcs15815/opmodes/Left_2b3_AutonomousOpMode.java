@@ -3,13 +3,14 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfiguration;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
 /*
 
-Scores pre-loaded cone on high junction that heads to stack and places three stack cones
+ABANDONED: Scores pre-loaded cone on high junction that heads to stack and places three stack cones
 on nearest low junction, doing so by staying closer to the stack and using a 113 degree angle.
 This wasn't proving as precise at dropping on the low junction as the next opmode.
 
@@ -18,6 +19,7 @@ try again once we install odometry pods.
 
  */
 
+@Disabled
 @Autonomous(name = "Left 2b3 Autonomous", group = "Left")
 public class Left_2b3_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;

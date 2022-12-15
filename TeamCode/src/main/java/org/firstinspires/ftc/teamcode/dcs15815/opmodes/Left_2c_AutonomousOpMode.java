@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.dcs15815.opmodes;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.dcs15815.DefenderFramework.DefenderActions.DefenderActionSequence;
@@ -12,25 +13,18 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfigura
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.LiftAction;
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.SwitchAction;
 /*
- NOTE: this is the opmode as it was after Fruitport, with the changes from opmode 2b, but
- 	using the DefenderAction framework
+	This was an attempt to use the DefenderAction framework to build a version of the opmode
+	used at Fruitport. Given the limited time available and some problems encountered in
+	trying to use this untested framework, we decided to instead keep with the code that
+	we know works.
 
- Alliance Color: either
- Starting Position: touching wall, contained within tile F2 (red) or A5 (blue); camera pointed at signal
- Tasks:
- 	1) determine signal zone from team-supplied signal sleeve
- 	2) drive to angled position near midfield left tall junction
- 	3) deliver preloaded cone by lowering lift, opening claw, and raising lift
- 	4) turn towards and approach cone stack
- 	5) grab top cone
- 	6) reverse
- 	7) pound the cone on the ground to ensure good grip
- 	8) turn towards midfield left tall junction
- 	7) deliver stack cone by lowering lift, opening claw, and raising lift
- 	8) park within signal zone (no fallback for not sensing signal)
- 	9) turn towards alliance
+	While I was able to get some of the actions to sequence properly in the virtual robot
+	simulator, when run on the actual robot timings seemed to be ignored and possibly even
+	jumbled. I think it has something to do with the way the actions link to each other,
+	but that will need more time to test.
  */
 
+@Disabled
 @Autonomous(name = "Left 2c Autonomous", group = "Left")
 public class Left_2c_AutonomousOpMode extends LinearOpMode {
     EdwardScissorliftAutonomousBot bot;

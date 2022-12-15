@@ -11,7 +11,7 @@ import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.ESBConfigura
 import org.firstinspires.ftc.teamcode.dcs15815.EdwardScissorliftBot.EdwardScissorliftAutonomousBot;
 /*
 
-ABANDONED? attempted spline and other compounbd methods to drive to high junction and the stack.
+ABANDONED. Attempted spline and other compound methods to drive to high junction and the stack.
 	Was having a hard time getting placement to be as precise as desired.
 
 	Doesn't seem worth the change.
