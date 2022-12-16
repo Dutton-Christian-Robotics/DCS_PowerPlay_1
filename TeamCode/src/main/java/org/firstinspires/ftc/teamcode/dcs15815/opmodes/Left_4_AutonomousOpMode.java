@@ -74,7 +74,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 	   Pose2d startingPose = new Pose2d();
 
 	   Trajectory t1_initialForward = bot.navigation.trajectoryBuilder(startingPose)
-			 .forward(57)
+			 .forward(56)
 			 .build();
 	   Trajectory t2_approachHighJunction = bot.navigation.trajectoryBuilder(t1_initialForward.end().plus(new Pose2d(0, 0, CLOCKWISE_45)))
 			 .forward(8)
@@ -83,32 +83,32 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 			 .back(8)
 			 .build();
 	   Trajectory t4_approachStack = bot.navigation.trajectoryBuilder(t3_backAwayFromHighJunction.end().plus(new Pose2d(0, 0, COUNTER_CLOCKWISE_135)))
-			 .forward(28)
+			 .forward(29)
 			 .build();
 	   Trajectory t5_leaveStack = bot.navigation.trajectoryBuilder(t4_approachStack.end())
-			 .back(12)
+			 .back(13)
 			 .build();
 	   Trajectory t6_approachLowJunction = bot.navigation.trajectoryBuilder(t5_leaveStack.end().plus(new Pose2d(0, 0, COUNTER_CLOCKWISE_90)))
-			 .forward(4)
+			 .forward(3)
 			 .build();
 	   Trajectory t7_leaveLowJunction = bot.navigation.trajectoryBuilder(t6_approachLowJunction.end())
 			 .back(4)
 			 .build();
 	   Trajectory t8_approachStack = bot.navigation.trajectoryBuilder(t7_leaveLowJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_90)))
-			 .forward(11)
+			 .forward(14)
 			 .build();
 	   Trajectory t9_leaveStack = bot.navigation.trajectoryBuilder(t8_approachStack.end())
-			 .back(12)
+			 .back(13)
 			 .build();
 	   Trajectory t10_approachLowJunction = bot.navigation.trajectoryBuilder(t9_leaveStack.end().plus(new Pose2d(0, 0, COUNTER_CLOCKWISE_90)))
-			 .forward(4)
+			 .forward(3)
 			 .build();
 	   Trajectory t11_leaveLowJunction = bot.navigation.trajectoryBuilder(t10_approachLowJunction.end())
 			 .back(4)
 			 .build();
 
 	   Trajectory t12_approachStack = bot.navigation.trajectoryBuilder(t11_leaveLowJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_90)))
-			 .forward(12)
+			 .forward(14)
 			 .build();
 
 
@@ -197,11 +197,11 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 
 	   } else if (foundTagId == 1) {
 		  Trajectory t21_leaveStack = bot.navigation.trajectoryBuilder(t12_approachStack.end())
-				.back(12)
+				.back(13)
 				.build();
 
 		  Trajectory t22_approachLowJunction = bot.navigation.trajectoryBuilder(t21_leaveStack.end().plus(new Pose2d(0, 0, COUNTER_CLOCKWISE_90)))
-			 .forward(4)
+			 .forward(3)
 			 .build();
 		  Trajectory t23_leaveLowJunction = bot.navigation.trajectoryBuilder(t22_approachLowJunction.end())
 				.back(4)
@@ -224,7 +224,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 
 
 		  Trajectory t24_intoZone1 = bot.navigation.trajectoryBuilder(t23_leaveLowJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_90)))
-				.forward(9)
+				.forward(12)
 				.build();
 
 		  bot.navigation.followTrajectory(t24_intoZone1);
@@ -240,7 +240,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 
 		  // drive toward junction
 		  Trajectory t22_approachJunction = bot.navigation.trajectoryBuilder(t21_returnToHighJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_135)))
-				.forward(9)
+				.forward(10)
 				.build();
 		  bot.navigation.followTrajectory(t22_approachJunction);
 		  bot.lift.setPosition( LIFT_POSITION_BELOW_HIGH); sleep(250);
@@ -256,15 +256,15 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 		  bot.lift.setPosition(LIFT_POSITION_GROUND);sleep(200);
 
 
-//		  Trajectory t24_intoZone2 = bot.navigation.trajectoryBuilder(t23_backAwayFromJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_45)))
-//				.back(2)
-//				.build();
-//		  bot.navigation.followTrajectory(t24_intoZone2);
+		  Trajectory t24_intoZone2 = bot.navigation.trajectoryBuilder(t23_backAwayFromJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_45)))
+				.back(2)
+				.build();
+		  bot.navigation.followTrajectory(t24_intoZone2);
 
 
 	   } else if (foundTagId == 3) {
 		  Trajectory t21_returnToHighJunction = bot.navigation.trajectoryBuilder(t12_approachStack.end())
-				.back(50)
+				.back(48)
 				.build();
 		  bot.navigation.followTrajectory(t21_returnToHighJunction);
 		  bot.lift.setPosition( LIFT_POSITION_HIGH); sleep(250);bot.navigation.turn(CLOCKWISE_45);
@@ -272,7 +272,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 
 		  // drive toward junction
 		  Trajectory t22_approachJunction = bot.navigation.trajectoryBuilder(t21_returnToHighJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_45)))
-				.forward(11)
+				.forward(9)
 				.build();
 		  bot.navigation.followTrajectory(t22_approachJunction);
 		  bot.lift.setPosition( LIFT_POSITION_BELOW_HIGH); sleep(250);
