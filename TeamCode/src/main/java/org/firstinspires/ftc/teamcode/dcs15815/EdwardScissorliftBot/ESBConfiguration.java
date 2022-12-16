@@ -32,7 +32,7 @@ public class ESBConfiguration extends DefenderBotConfiguration {
     public static int LIFT_POSITION_MIDDLE = 1500;
     public static int LIFT_POSITION_LOW = 1100;
     public static int LIFT_POSITION_STACKTOP = 680;
-    public static int LIFT_POSITION_STACK3 = 500;
+    public static int LIFT_POSITION_STACK3 = 450;
     public static int LIFT_POSITION_GROUND = 0;
 
     public static double LIFT_MOTOR_KP = 0;
@@ -55,7 +55,7 @@ public class ESBConfiguration extends DefenderBotConfiguration {
     //	   CLAW_POSITION_OPEN = 0.15; // original metal claw
     //	   CLAW_POSITION_OPEN = 0; // original metal claw
 
-    public static double CLAW_POSITION_OPEN = 0.35;
+    public static double CLAW_POSITION_OPEN = 0.55;
     public static double CLAW_POSITION_CLOSED = 0.15;
 
     public static String IMU_SENSOR_NAME = "imu";
