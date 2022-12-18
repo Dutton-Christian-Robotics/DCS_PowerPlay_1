@@ -86,7 +86,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 			 .forward(29)
 			 .build();
 	   Trajectory t5_leaveStack = bot.navigation.trajectoryBuilder(t4_approachStack.end())
-			 .back(13)
+			 .back(12)
 			 .build();
 	   Trajectory t6_approachLowJunction = bot.navigation.trajectoryBuilder(t5_leaveStack.end().plus(new Pose2d(0, 0, COUNTER_CLOCKWISE_90)))
 			 .forward(3)
@@ -98,7 +98,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 			 .forward(14)
 			 .build();
 	   Trajectory t9_leaveStack = bot.navigation.trajectoryBuilder(t8_approachStack.end())
-			 .back(13)
+			 .back(12)
 			 .build();
 	   Trajectory t10_approachLowJunction = bot.navigation.trajectoryBuilder(t9_leaveStack.end().plus(new Pose2d(0, 0, COUNTER_CLOCKWISE_90)))
 			 .forward(3)
@@ -108,7 +108,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 			 .build();
 
 	   Trajectory t12_approachStack = bot.navigation.trajectoryBuilder(t11_leaveLowJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_90)))
-			 .forward(14)
+			 .forward(15)
 			 .build();
 
 
@@ -224,7 +224,7 @@ public class Left_4_AutonomousOpMode extends LinearOpMode {
 
 
 		  Trajectory t24_intoZone1 = bot.navigation.trajectoryBuilder(t23_leaveLowJunction.end().plus(new Pose2d(0, 0, CLOCKWISE_90)))
-				.forward(12)
+				.forward(14)
 				.build();
 
 		  bot.navigation.followTrajectory(t24_intoZone1);
